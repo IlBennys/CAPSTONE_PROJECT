@@ -1,0 +1,1241 @@
+{
+	"info": {
+		"_postman_id": "67832100-ef97-404e-b7a2-f341b4f78712",
+		"name": "Capstone be",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25786940"
+	},
+	"item": [
+		{
+			"name": "Autorizzazioni",
+			"item": [
+				{
+					"name": "REGISTER",
+					"item": [
+						{
+							"name": "REGISTER ADMIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.admin\",\r\n    \"email\": \"testerer.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\"ROLE_ADMIN\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REGISTER USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.user\",\r\n    \"email\": \"testerer.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\"ROLE_USER\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "REGISTER USER E ADMIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User_admin\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.user-admin\",\r\n    \"email\": \"testerer.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\r\n        \"ROLE_USER\", \"ROLE_ADMIN\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LOGIN",
+					"item": [
+						{
+							"name": "LOGIN ADMIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.admin\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.user\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LOGIN ADMIN E USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n    \"username\": \"TEST-r.user-admin\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Articoli",
+			"item": [
+				{
+					"name": "BASIC CRUD",
+					"item": [
+						{
+							"name": "GET ALL ARTICOLI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODIxNDQwLCJleHAiOjE2ODQ0MjYyNDB9.vqZKY1kQ5WqqlM0EDbKv-qzNiqcDZL35IHOtw26Tp4Z9l7TcMinnUd1Ja9BzFWo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ARTICOLI BY ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODIxNDQwLCJleHAiOjE2ODQ0MjYyNDB9.vqZKY1kQ5WqqlM0EDbKv-qzNiqcDZL35IHOtw26Tp4Z9l7TcMinnUd1Ja9BzFWo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE NEW ARTICOLI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODIxNDQwLCJleHAiOjE2ODQ0MjYyNDB9.vqZKY1kQ5WqqlM0EDbKv-qzNiqcDZL35IHOtw26Tp4Z9l7TcMinnUd1Ja9BzFWo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/21",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"21"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADD NEW ARTICOLO",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODIxNDQwLCJleHAiOjE2ODQ0MjYyNDB9.vqZKY1kQ5WqqlM0EDbKv-qzNiqcDZL35IHOtw26Tp4Z9l7TcMinnUd1Ja9BzFWo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nomeArticoli\": \"AIR FORCEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\",\r\n    \"prezzo\": \"€ 55,42\",\r\n    \"descrizioneArticolo\": \"VERDE\",\r\n    \"img\": \"https://e7.pngegg.com/pngimages/415/691/png-clipart-sneakers-skate-shoe-nike-dunk-nike-skateboarding-nike-dunk-white-outdoor-shoe-thumbnail.png\",\r\n    \"brand\": \"NIKE\",\r\n    \"quantita\": 25\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/articolo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE ARTICOLO",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODIxNDQwLCJleHAiOjE2ODQ0MjYyNDB9.vqZKY1kQ5WqqlM0EDbKv-qzNiqcDZL35IHOtw26Tp4Z9l7TcMinnUd1Ja9BzFWo0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 22,\r\n    \"nomeArticoli\": \"AIR ONOREVOLE\",\r\n    \"prezzo\": \"€ 55,42\",\r\n    \"descrizioneArticolo\": \"VERDE\",\r\n    \"img\": \"https://e7.pngegg.com/pngimages/415/691/png-clipart-sneakers-skate-shoe-nike-dunk-nike-skateboarding-nike-dunk-white-outdoor-shoe-thumbnail.png\",\r\n    \"brand\": \"NIKE\",\r\n    \"quantita\": 25\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/22",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"22"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BASIC GET",
+					"item": [
+						{
+							"name": "FILTER ARTICOLO BY RANGE PREZZO",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/prezzo/:s1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"prezzo",
+										":s1"
+									],
+									"variable": [
+										{
+											"key": "s1",
+											"value": "50&100",
+											"description": "ES: 50&100"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FILTER ARTICOLO BY NAME",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/name/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"name",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "AIR MAX",
+											"description": "ES: AIR MAX"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FILTER ARTICOLO BY COLOR",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/colors/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"colors",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "ROSSO E NERO",
+											"description": "ES: NERO - ROSSO E NERO"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PAGED",
+					"item": [
+						{
+							"name": "ARTICOLO PAGED",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/paged?page=0&size=10&direction=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "direction",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Azienda",
+			"item": [
+				{
+					"name": "BASIC CRUD",
+					"item": [
+						{
+							"name": "GET ALL AZIENDA",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI0NzM0LCJleHAiOjE2ODQ0Mjk1MzR9.wyn34QAEZtoaoZO5751jSdnI8NRa28od-wkFGOUy9b-5tHwCcUP83_MFqHDgaFIy",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/azienda",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET AZIENDA BY ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI0NzM0LCJleHAiOjE2ODQ0Mjk1MzR9.wyn34QAEZtoaoZO5751jSdnI8NRa28od-wkFGOUy9b-5tHwCcUP83_MFqHDgaFIy",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/azienda/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE AZIENDA",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI1NzE0LCJleHAiOjE2ODQ0MzA1MTR9.mo0ynTKvWqCVy_Tn9YHJYuArOd7KFsjK8wh_eoUB3nVIK48nNNKZCS87iqncgYJB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"nomeAzienda\": \"ENERGY SHOES\",\r\n    \"partitaIva\": 894661018,\r\n    \"codiceFiscale\": 894661018,\r\n    \"pec\": \"energy.shoes@legalmail.it\",\r\n    \"citta\": \"Palermo\",\r\n    \"lista_corrieri\": [\r\n        {\r\n            \"id\": 1,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 7,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 8,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 10,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 11,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 12,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 13,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 14,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 15,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 16,\r\n            \"corriere\": \"UPS\"\r\n        },\r\n        {\r\n            \"id\": 17,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 18,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 19,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 20,\r\n            \"corriere\": \"UPS\"\r\n        },\r\n        {\r\n            \"id\": 21,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 22,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 23,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 24,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 25,\r\n            \"corriere\": \"UPS\"\r\n        },\r\n        {\r\n            \"id\": 26,\r\n            \"corriere\": \"UPS\"\r\n        },\r\n        {\r\n            \"id\": 27,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 28,\r\n            \"corriere\": \"DHL\"\r\n        },\r\n        {\r\n            \"id\": 29,\r\n            \"corriere\": \"GLS\"\r\n        },\r\n        {\r\n            \"id\": 30,\r\n            \"corriere\": \"UPS\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/azienda/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ordine",
+			"item": [
+				{
+					"name": "BASIC CRUD",
+					"item": [
+						{
+							"name": "GET ALL ORDINI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI2ODYwLCJleHAiOjE2ODQ0MzE2NjB9.J3cqlrl3-ET3rBx0pN-n_30d11NlGlstBu9PUwZvY_2wN9DdxsTMXzfYVZmZM8tt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET ORDINI BY ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI2ODYwLCJleHAiOjE2ODQ0MzE2NjB9.J3cqlrl3-ET3rBx0pN-n_30d11NlGlstBu9PUwZvY_2wN9DdxsTMXzfYVZmZM8tt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADD NEW ORDINE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI2ODYwLCJleHAiOjE2ODQ0MzE2NjB9.J3cqlrl3-ET3rBx0pN-n_30d11NlGlstBu9PUwZvY_2wN9DdxsTMXzfYVZmZM8tt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroOrdine\": 5837,\r\n    \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: 46,483207°, LON: 61,378223°\",\r\n    \"dataConsegna\": \"0013-04-18\",\r\n    \"dataOrdine\": \"0123-04-15\",\r\n    \"statoOrdine\": \"IN_CONSEGNA\",\r\n    \"fattura\": {\r\n        \"quantitaArticolo\": 9,\r\n        \"importoTotale\": 384.0,\r\n        \"prezzoConsegna\": \"€ 2.99\"\r\n    },\r\n    \"azienda\": {\r\n        \"id\": 1,\r\n        \"nomeAzienda\": \"ENERGY SHOES\",\r\n        \"partitaIva\": 894661018,\r\n        \"codiceFiscale\": 894661018,\r\n        \"pec\": \"energy.shoes@legalmail.it\",\r\n        \"citta\": \"Palermo\",\r\n        \"lista_corrieri\": [\r\n            {\r\n                \"id\": 1,\r\n                \"corriere\": \"GLS\"\r\n            }\r\n        ]\r\n    },\r\n    \"articolo\": [\r\n        {\r\n            \"id\": 2,\r\n            \"nomeArticoli\": \"AIR FORCE\",\r\n            \"prezzo\": 60.0,\r\n            \"descrizioneArticolo\": \"BIANCO\",\r\n            \"img\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fit.cleanpng.com%2Fpng-p9fy4s%2F&psig=AOvVaw2evZ-zFBgrabkhh05vAvMu&ust=1683820289750000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPC_icSN6_4CFQAAAAAdAAAAABAN\",\r\n            \"brand\": \"NIKE\",\r\n            \"quantita\": 88\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"nomeArticoli\": \"FREE AIR FORCE\",\r\n            \"prezzo\": 70.0,\r\n            \"descrizioneArticolo\": \"ROSSO E NERO\",\r\n            \"img\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fit.cleanpng.com%2Fpng-p9fy4s%2F&psig=AOvVaw2evZ-zFBgrabkhh05vAvMu&ust=1683820289750000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPC_icSN6_4CFQAAAAAdAAAAABAN\",\r\n            \"brand\": \"NIKE\",\r\n            \"quantita\": 13\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nomeArticoli\": \"AIR JORDAN\",\r\n            \"prezzo\": 63.0,\r\n            \"descrizioneArticolo\": \"ROSSO E NERO\",\r\n            \"img\": \"https://w7.pngwing.com/pngs/732/999/png-transparent-air-jordan-nike-air-max-shoe-sneakers-nike-white-outdoor-shoe-sneakers-thumbnail.png\",\r\n            \"brand\": \"NIKE\",\r\n            \"quantita\": 7\r\n        }\r\n    ],\r\n    \"utente\": {\r\n        \"id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/ordine",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE NEW ORDINE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODI2ODYwLCJleHAiOjE2ODQ0MzE2NjB9.J3cqlrl3-ET3rBx0pN-n_30d11NlGlstBu9PUwZvY_2wN9DdxsTMXzfYVZmZM8tt",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/21",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PAGED",
+					"item": [
+						{
+							"name": "ORDINI PAGED",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/paged?page=0&size=10&sort=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Utente",
+			"item": [
+				{
+					"name": "BASIC CRUD",
+					"item": [
+						{
+							"name": "GET ALL UTENTI",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/utente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"utente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET UTENTI BY ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/utente/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"utente",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADD NEW UTENTE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"indirizzo\": \"Via De luca 839\",\r\n    \"numeroTelefono\": \"199.104.3241\",\r\n    \"dataNascita\": \"2000-05-02\",\r\n    \"ordini\": [\r\n        {\r\n            \"id\": 1,\r\n            \"numeroOrdine\": 9418,\r\n            \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: 60,159068°, LON: 98,995020°\",\r\n            \"dataConsegna\": \"0017-04-15\",\r\n            \"dataOrdine\": \"0123-04-12\",\r\n            \"statoOrdine\": \"SPEDITO\",\r\n            \"fattura\": {\r\n                \"id\": 1,\r\n                \"quantitaArticolo\": 5,\r\n                \"importoTotale\": 99.0,\r\n                \"prezzoConsegna\": \"€ 2.99\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"numeroOrdine\": 9058,\r\n            \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: -60,092938°, LON: 27,466295°\",\r\n            \"dataConsegna\": \"0017-04-15\",\r\n            \"dataOrdine\": \"0123-04-12\",\r\n            \"statoOrdine\": \"ANNULLATO\",\r\n            \"fattura\": {\r\n                \"id\": 2,\r\n                \"quantitaArticolo\": 9,\r\n                \"importoTotale\": 242.0,\r\n                \"prezzoConsegna\": \"€ 2.99\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"numeroOrdine\": 9317,\r\n            \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: 75,958584°, LON: 138,00382°\",\r\n            \"dataConsegna\": \"0017-04-15\",\r\n            \"dataOrdine\": \"0123-04-12\",\r\n            \"statoOrdine\": \"SPEDITO\",\r\n            \"fattura\": {\r\n                \"id\": 3,\r\n                \"quantitaArticolo\": 3,\r\n                \"importoTotale\": 119.0,\r\n                \"prezzoConsegna\": \"€ 2.99\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"numeroOrdine\": 5912,\r\n            \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: 24,203279°, LON: 151,53948°\",\r\n            \"dataConsegna\": \"0017-04-15\",\r\n            \"dataOrdine\": \"0123-04-12\",\r\n            \"statoOrdine\": \"CONSEGNATO\",\r\n            \"fattura\": {\r\n                \"id\": 4,\r\n                \"quantitaArticolo\": 9,\r\n                \"importoTotale\": 331.0,\r\n                \"prezzoConsegna\": \"€ 2.99\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"numeroOrdine\": 5868,\r\n            \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: -41,865857°, LON: 112,34618°\",\r\n            \"dataConsegna\": \"0017-04-15\",\r\n            \"dataOrdine\": \"0123-04-12\",\r\n            \"statoOrdine\": \"SPEDITO\",\r\n            \"fattura\": {\r\n                \"id\": 5,\r\n                \"quantitaArticolo\": 6,\r\n                \"importoTotale\": 313.0,\r\n                \"prezzoConsegna\": \"€ 2.99\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/utente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"utente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE NEW UTENTE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/utente/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"utente",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BASIC GET",
+					"item": [
+						{
+							"name": "FILTER UTENTE BY DATA DI NASCITA",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/utente/data/:l1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"utente",
+										"data",
+										":l1"
+									],
+									"variable": [
+										{
+											"key": "l1",
+											"value": "2000-05-02&2015-05-02",
+											"description": "ES: 2000-05-02&2015-05-02"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Fattura",
+			"item": [
+				{
+					"name": "BASIC CRUD",
+					"item": [
+						{
+							"name": "GET ALL FATTURE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET FATTURE BY ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ADD NEW FATTURA",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantitaArticolo\": 7,\r\n    \"importoTotale\": \"€ 358\",\r\n    \"prezzoConsegna\": \"€ 2.99\",\r\n    \"ordine\": {\r\n        \"id\": 1,\r\n        \"numeroOrdine\": 9304,\r\n        \"riepilogoOrdine\": \"IL TUO PACCO SI TROVA PRESSO:   LAT: -60,504573°, LON: 165,80943°\",\r\n        \"dataConsegna\": \"0015-04-15\",\r\n        \"dataOrdine\": \"0123-04-12\",\r\n        \"statoOrdine\": \"IN_CONSEGNA\",\r\n        \"fattura\": {\r\n            \"id\": 1,\r\n            \"quantitaArticolo\": 7,\r\n            \"importoTotale\": \"€ 358\",\r\n            \"prezzoConsegna\": \"€ 2.99\"\r\n        },\r\n        \"azienda\": {\r\n            \"id\": 1,\r\n            \"nomeAzienda\": \"ENERGY SHOES\",\r\n            \"partitaIva\": 894661018,\r\n            \"codiceFiscale\": 894661018,\r\n            \"pec\": \"energy.shoes@legalmail.it\",\r\n            \"citta\": \"Palermo\",\r\n            \"lista_corrieri\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"corriere\": \"UPS\"\r\n                }\r\n            ]\r\n        },\r\n        \"articolo\": []\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/fattura",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE NEW FATTURA",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/21",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BASIC GET",
+					"item": [
+						{
+							"name": "FILTER FATTURA BY RANGE IMPORTO",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjgzODk2ODI3LCJleHAiOjE2ODQ1MDE2Mjd9.SESbkBwz138zuUZ6XDe1pNIA0WscleBvhefwqi__mIIo8SY99auBRFUroTAT1srB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/importo/:d1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										"importo",
+										":d1"
+									],
+									"variable": [
+										{
+											"key": "d1",
+											"value": "80&150",
+											"description": "ES: 80&150"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PAGED",
+					"item": [
+						{
+							"name": "FATTURA PAGED",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/paged?page=0&size=10&sort=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
