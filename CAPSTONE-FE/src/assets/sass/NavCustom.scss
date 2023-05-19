@@ -1,4 +1,21 @@
 $bluScuro: #183061;
-.Navbar {
+.Navbare {
   background-color: $bluScuro;
+  border-bottom: white solid 1px;
+  height: 75px;
+}
+
+#scarpeButton:active {
+  border-block-start: orangered solid 3px;
+}
+#felpeButton:active {
+  border-block-start: orangered solid 3px;
+}
+#cappelliButton:active {
+  border-block-start: orangered solid 3px;
+}
+
+#logonike {
+  position: relative;
+  left: -45px;
 }

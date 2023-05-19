@@ -34,6 +34,7 @@ function Login() {
       console.log(response)
       if (response.ok) {
         alert("sei entrato :) ")
+        window.location.href = "http://localhost:3000/"
       }
     } catch (error) {
       alert("testComment", error)
@@ -42,10 +43,10 @@ function Login() {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form className="mt-5" noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-            <Form.Label>Username</Form.Label>
+            <Form.Label className="text-white">Username</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
                 type="text"
@@ -59,7 +60,7 @@ function Login() {
           </Form.Group>
 
           <Form.Group as={Col} md="4" controlId="validationCustomPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="text-white">Password</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
                 type="password"

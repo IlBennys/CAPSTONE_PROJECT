@@ -7,6 +7,9 @@ import Home from "./components/Home"
 import Register from "./components/Register"
 import NavCustom from "./components/NavCustome"
 import Login from "./components/Login"
+import Scarpe from "./components/Scarpe"
+import Felpe from "./components/Felpe"
+import Cappelli from "./components/Cappelli"
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/scarpe" element={<Scarpe />} />
+                <Route path="/felpe" element={<Felpe />} />
+                <Route path="/cappelli" element={<Cappelli />} />
                 <Route path="/login" element={<Login />} />
               </Routes>
             </Col>
