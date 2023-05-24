@@ -10,6 +10,7 @@ import Login from "./components/Login"
 import Scarpe from "./components/Scarpe"
 import Felpe from "./components/Felpe"
 import Cappelli from "./components/Cappelli"
+import Carrello from "./components/Carrello"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/felpe" element={<Felpe />} />
                 <Route path="/cappelli" element={<Cappelli />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/carrello" element={<Carrello />} />
               </Routes>
             </Col>
           </Row>

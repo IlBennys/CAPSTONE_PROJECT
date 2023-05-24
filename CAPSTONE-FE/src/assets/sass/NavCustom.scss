@@ -3,6 +3,13 @@ $bluScuro: #183061;
   background-color: $bluScuro;
   border-bottom: white solid 1px;
   height: 75px;
+  position: sticky;
+  top: 0%;
+  z-index: 3;
+}
+
+.caratteraGrande {
+  font-size: larger;
 }
 
 #scarpeButton:active {

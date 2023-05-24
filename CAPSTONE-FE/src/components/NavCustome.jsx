@@ -7,8 +7,37 @@ import { BsHeart } from "react-icons/bs"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import logo from "../assets/LOGOnIKEE.png"
 import scritta from "../assets/NIKE SCRITTA.png"
+import { useEffect, useState } from "react"
 
 const NavCustom = () => {
+  const [utente, setUtente] = useState([])
+  const [isLogged, setisLogged] = useState(false)
+
+  const getUser = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/user/1", {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NDk0ODEzNSwiZXhwIjoxNjg1NTUyOTM1fQ.ZJtBEcqGzR9ID2_S9rRJwctjLRATl_xXlbxZasCoU64ABkoaXqkvgbK3pTV36eg4",
+          "Content-Type": "application/json",
+        },
+      })
+      console.log(response)
+      if (response.ok) {
+        const data = await response.json()
+        console.log(data, "oooooooooooooooooooooooooooooooooo")
+        setUtente(data)
+        setisLogged(true)
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+  useEffect(() => {
+    getUser()
+  }, [])
+
   return (
     <>
       <Navbar className="Navbare" collapseOnSelect expand="lg" variant="dark">
@@ -25,20 +54,20 @@ const NavCustom = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto me-auto">
               <span>
-                <Nav.Link id="scarpeButton" href="scarpe">
+                <Nav.Link className="caratteraGrande" id="scarpeButton" href="scarpe">
                   SCARPE
                 </Nav.Link>
               </span>
 
-              <Nav.Link id="felpeButton" href="felpe">
+              <Nav.Link className="caratteraGrande" id="felpeButton" href="felpe">
                 FELPE
               </Nav.Link>
 
-              <Nav.Link id="cappelliButton" href="cappelli">
+              <Nav.Link className="caratteraGrande" id="cappelliButton" href="cappelli">
                 CAPPELLI
               </Nav.Link>
 
-              <Nav.Link href="#features">
+              <Nav.Link className="caratteraGrande" href="#features">
                 <span>MI PIACE</span>
                 <span className="ms-2">
                   <BsHeart />
@@ -46,16 +75,26 @@ const NavCustom = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">
+              <Nav.Link className="caratteraGrande" href="carrello">
                 <MdOutlineShoppingCart />
               </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
+              <Nav.Link className="caratteraGrande" eventKey={2} href="#memes">
                 <FiSearch />
               </Nav.Link>
-              <Nav>
-                <Nav.Link href="login">accedi</Nav.Link>
-                <Nav.Link href="register">registrati</Nav.Link>
-              </Nav>
+              {isLogged ? (
+                <Nav>
+                  <Nav.Link className="caratteraGrande">{utente.username}</Nav.Link>{" "}
+                </Nav>
+              ) : (
+                <Nav>
+                  <Nav.Link className="caratteraGrande" href="login">
+                    accedi
+                  </Nav.Link>
+                  <Nav.Link className="caratteraGrande" href="register">
+                    registrati
+                  </Nav.Link>
+                </Nav>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
