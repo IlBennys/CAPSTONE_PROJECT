@@ -19,7 +19,7 @@ const NavCustom = () => {
         method: "GET",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NDk0ODEzNSwiZXhwIjoxNjg1NTUyOTM1fQ.ZJtBEcqGzR9ID2_S9rRJwctjLRATl_xXlbxZasCoU64ABkoaXqkvgbK3pTV36eg4",
+            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg1MDI5MTk1LCJleHAiOjE2ODU2MzM5OTV9.Z6TXffusNZrKvSIqzHu9QR-QOTv1aOMFAZYUkQO-XZkAXRhyue807Tu6HBU31wSl",
           "Content-Type": "application/json",
         },
       })

@@ -1,6 +1,9 @@
 .scarpeimg {
   object-fit: contain;
 }
+.scarpeimg:hover {
+  transform: scale(1.3);
+}
 
 .BLUES {
   background: rgb(21, 0, 255);

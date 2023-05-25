@@ -6,11 +6,11 @@ function Scarpe() {
   const [scarpe, setscarpe] = useState([])
   const postCarrello = async (id, id2) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/carrello/articoli/${id}/articoli/${id2}`, {
+      const response = await fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
         method: "POST",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0OTQ5NTkzLCJleHAiOjE2ODU1NTQzOTN9.Uy_D0pC92IvkJtDaHPGQsGCunw0OXiZopsbp-T5AiaML46F7ilGkTXAb45X0x3SI",
+            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg1MDI5MTk1LCJleHAiOjE2ODU2MzM5OTV9.Z6TXffusNZrKvSIqzHu9QR-QOTv1aOMFAZYUkQO-XZkAXRhyue807Tu6HBU31wSl",
           "Content-Type": "application/json",
         },
       })
@@ -26,11 +26,6 @@ function Scarpe() {
     try {
       const response = await fetch("http://localhost:8080/api/articolo", {
         method: "GET",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg0OTQ5NTkzLCJleHAiOjE2ODU1NTQzOTN9.Uy_D0pC92IvkJtDaHPGQsGCunw0OXiZopsbp-T5AiaML46F7ilGkTXAb45X0x3SI",
-          "Content-Type": "application/json",
-        },
       })
       console.log(response)
       if (response.ok) {
@@ -67,6 +62,7 @@ function Scarpe() {
                 <Button
                   onClick={() => {
                     postCarrello(1, e.id)
+                    alert("Articolo aggiunto al carrello.")
                   }}
                   className="coloresfondo"
                 >
