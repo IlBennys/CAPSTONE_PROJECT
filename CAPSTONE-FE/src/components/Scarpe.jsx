@@ -4,9 +4,14 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 function Scarpe() {
   const [scarpe, setscarpe] = useState([])
-  const postCarrello = async (id, id2) => {
-    try {
-      const response = await fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
+  const [carrello, setCarrello] = useState([])
+
+  const postCarrello = (id, id2) => {
+    const isPresente = carrello.some((item) => item.id === id2)
+    if (isPresente) {
+      alert("Hai già aggiunto questo articolo al carrello.")
+    } else {
+      fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
         method: "POST",
         headers: {
           Authorization:
@@ -14,11 +19,20 @@ function Scarpe() {
           "Content-Type": "application/json",
         },
       })
-      console.log(response)
-      if (response.ok) {
-      }
-    } catch (error) {
-      alert("testComment", error)
+        .then((response) => {
+          console.log(response)
+          if (response.ok) {
+            const articolo = scarpe.find((e) => e.id === id2)
+            setCarrello((prevCarrello) => [...prevCarrello, articolo])
+            alert("Articolo aggiunto al carrello.")
+          } else if (response.status === 409) {
+            alert("Articolo già aggiunto al carrello.")
+          }
+        })
+        .catch((error) => {
+          console.error("testComment", error)
+          alert("Si è verificato un errore durante l'aggiunta all'articolo al carrello.")
+        })
     }
   }
 
@@ -62,7 +76,6 @@ function Scarpe() {
                 <Button
                   onClick={() => {
                     postCarrello(1, e.id)
-                    alert("Articolo aggiunto al carrello.")
                   }}
                   className="coloresfondo"
                 >

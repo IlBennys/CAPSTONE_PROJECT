@@ -1,13 +1,12 @@
 package com.gestione.negozio.commerce.service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.gestione.negozio.commerce.model.Articolo;
 import com.gestione.negozio.commerce.model.Fattura;
 import com.gestione.negozio.commerce.model.Ordine;
 import com.gestione.negozio.commerce.repository.FatturaDao;
@@ -20,14 +19,25 @@ public class FatturaService {
     private FatturaDao fatturaDao;
 
     @Autowired
-    @Qualifier("FakeFattura")
-    private ObjectProvider<Fattura> objFattura;
+    private OrdineService ordineService;
 
-    public Fattura createFattura(Ordine o) {
-	Fattura f = objFattura.getObject();
-	f.setOrdine(o);
+    public Fattura createFattura() {
+	Fattura f = new Fattura();
 	fatturaDao.save(f);
 	return f;
+    }
+
+    public String postFattura(Long idOrdine) {
+	Ordine o = ordineService.FindOrdineById(idOrdine);
+	Fattura f = new Fattura();
+	f.setOrdine(o);
+	List<Double> numbers = o.getCarrello().getArticoli().stream().map(Articolo::getPrezzo)
+		.collect(Collectors.toList());
+	Double result = numbers.stream().reduce((double) 0, (subtotal, element) -> subtotal + element);
+	f.setImportoTotale(o.getPrezzoConsegna() + result);
+	f.setQuantitaArticolo(o.getCarrello().getArticoli().size());
+	fatturaDao.save(f);
+	return "Fattura correctly persisted on Database!";
     }
 
     public String updateFattura(Fattura f) {
@@ -37,10 +47,6 @@ public class FatturaService {
 	} else {
 	    throw new EntityNotFoundException("Fattura with ID --> " + f.getId() + " doesn't exists on Database!");
 	}
-    }
-
-    public Optional<List<Fattura>> findAllByImporto(Double d1, Double d2) {
-	return fatturaDao.getAllFatturaByImporto(d1, d2);
     }
 
     public String deleteFattura(Fattura f) {
@@ -71,11 +77,6 @@ public class FatturaService {
 
     public List<Fattura> findAll() {
 	return fatturaDao.findAll();
-    }
-
-    public String postFattura(Fattura f) {
-	fatturaDao.save(f);
-	return "Fattura correctly persisted on Database!";
     }
 
 }

@@ -3,6 +3,7 @@ package com.gestione.negozio.commerce.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestione.negozio.commerce.model.Ordine;
 import com.gestione.negozio.commerce.service.OrdineService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/ordine")
 public class OrdineController {
-
     @Autowired
     OrdineService ordineService;
 
@@ -32,9 +33,9 @@ public class OrdineController {
 	return new ResponseEntity<>(ordineService.FindOrdineById(id), HttpStatus.FOUND);
     }
 
-    @PostMapping
-    public ResponseEntity<?> addNewOrdine(@RequestBody Ordine o) {
-	return new ResponseEntity<String>(ordineService.postOrdine(o), HttpStatus.CREATED);
+    @PostMapping("/user/{idUser}/carrello/{idCarrello}")
+    public ResponseEntity<?> addNewOrdine(@PathVariable Long idUser, @PathVariable Long idCarrello) {
+	return new ResponseEntity<String>(ordineService.postOrdine(idUser, idCarrello), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

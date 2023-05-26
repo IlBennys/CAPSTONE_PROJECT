@@ -27,10 +27,9 @@ public class Fattura {
     private Long id;
     private int quantitaArticolo;
     private Double importoTotale;
-    private String prezzoConsegna;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH })
-    @JsonIgnoreProperties({ "fattura", "azienda", "articolo" })
+    @JsonIgnoreProperties({ "azienda" })
     private Ordine ordine;
 
 }

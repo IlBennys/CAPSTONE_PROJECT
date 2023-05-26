@@ -3,7 +3,9 @@ package com.gestione.negozio.auth.service;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,13 +23,17 @@ import com.gestione.negozio.auth.payload.RegisterDto;
 import com.gestione.negozio.auth.repository.RoleRepository;
 import com.gestione.negozio.auth.repository.UserRepository;
 import com.gestione.negozio.auth.security.JwtTokenProvider;
-import com.gestione.negozio.commerce.service.UtenteService;
+import com.gestione.negozio.commerce.model.Carrello;
+import com.gestione.negozio.commerce.repository.CarrelloDao;
 
 @Service
 public class AuthServiceImpl implements AuthService {
+    @Autowired
+    private CarrelloDao carrelloDao;
 
     @Autowired
-    private UtenteService utenteService;
+    @Qualifier("FakeCarrello")
+    private ObjectProvider<Carrello> objCarrello;
 
     private AuthenticationManager authenticationManager;
     private UserRepository userRepository;
@@ -76,6 +82,9 @@ public class AuthServiceImpl implements AuthService {
 	user.setUsername(registerDto.getUsername());
 	user.setEmail(registerDto.getEmail());
 	user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
+	user.setDataNascita(registerDto.getDataNascita());
+	user.setIndirizzo(registerDto.getIndirizzo());
+	user.setNumeroTelefono(registerDto.getNumeroTelefono());
 
 	Set<Role> roles = new HashSet<>();
 
@@ -91,9 +100,10 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	user.setRoles(roles);
+	Carrello c = objCarrello.getObject();
+	carrelloDao.save(c);
+	user.setCarrello(c);
 	System.out.println(user);
-	userRepository.save(user);
-	utenteService.createUtente(user);
 	userRepository.save(user);
 
 	return "User registered successfully!";
@@ -105,5 +115,4 @@ public class AuthServiceImpl implements AuthService {
 	else
 	    return ERole.ROLE_USER;
     }
-
 }

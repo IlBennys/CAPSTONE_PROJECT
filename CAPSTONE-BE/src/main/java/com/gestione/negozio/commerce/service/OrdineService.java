@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.gestione.negozio.auth.entity.User;
 import com.gestione.negozio.commerce.model.Azienda;
-import com.gestione.negozio.commerce.model.Fattura;
+import com.gestione.negozio.commerce.model.Carrello;
 import com.gestione.negozio.commerce.model.Ordine;
 import com.gestione.negozio.commerce.repository.OrdineDao;
 
@@ -21,22 +22,31 @@ public class OrdineService {
     @Autowired
     private AziendaService aziendaService;
     @Autowired
-    private FatturaService fatturaService;
+    private UserService userService;
+    @Autowired
+    private CarrelloService carrelloService;
 
     @Autowired
     @Qualifier("FakeOrdine")
     private ObjectProvider<Ordine> objOrdine;
 
-    public void createOrdine() {
-
+    public void createOrdine(Long idUser, Long idCarrello) {
 	Ordine o = objOrdine.getObject();
 	ordineDao.save(o);
+	// Fattura f = fatturaService.createFattura();
 	Azienda a = aziendaService.FindAziendaById(1l);
-	Fattura f = fatturaService.createFattura(o);
 	o.setAzienda(a);
-	o.setFattura(f);
+	// o.setFattura(f);
+	User u = userService.FindUserById(idUser);
+	Carrello c = carrelloService.FindCarrelloById(idCarrello);
+	o.setUser(u);
+	o.setCarrello(c);
 	ordineDao.save(o);
+    }
 
+    public String postOrdine(Long idUser, Long idCarrello) {
+	createOrdine(idUser, idCarrello);
+	return "Ordine correctly persisted on Database!";
     }
 
     public String updateOrdine(Ordine o) {
@@ -76,10 +86,5 @@ public class OrdineService {
 
     public List<Ordine> findAll() {
 	return ordineDao.findAll();
-    }
-
-    public String postOrdine(Ordine o) {
-	ordineDao.save(o);
-	return "Ordine correctly persisted on Database!";
     }
 }

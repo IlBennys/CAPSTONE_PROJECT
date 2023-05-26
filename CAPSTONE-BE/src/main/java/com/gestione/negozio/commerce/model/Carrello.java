@@ -1,9 +1,8 @@
 package com.gestione.negozio.commerce.model;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import com.gestione.negozio.auth.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -11,8 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,23 +18,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "utenti")
+@Table(name = "carrello")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class Utente {
+public class Carrello {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String indirizzo;
-    private String numeroTelefono;
-    private LocalDate dataNascita;
 
-    @OneToMany(mappedBy = "utente", fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.REMOVE,
-	    CascadeType.REFRESH })
-    private List<Ordine> ordini;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+    @JsonIgnoreProperties({ "carrello" })
+    private List<Articolo> articoli;
 
-    @OneToOne
-    private User user;
 }

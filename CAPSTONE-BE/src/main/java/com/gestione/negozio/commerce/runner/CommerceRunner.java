@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 import com.gestione.negozio.commerce.service.ArticoloService;
 import com.gestione.negozio.commerce.service.AziendaService;
 import com.gestione.negozio.commerce.service.CorriereService;
-import com.gestione.negozio.commerce.service.OrdineService;
-import com.gestione.negozio.commerce.service.UtenteService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,17 +19,14 @@ public class CommerceRunner implements ApplicationRunner {
     private ArticoloService articoloService;
     @Autowired
     private AziendaService aziendaService;
-    @Autowired
-    private OrdineService ordineService;
+
     @Autowired
     private CorriereService corriereService;
-    @Autowired
-    private UtenteService utenteService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 	if (corriereService.findAll().isEmpty()) {
-	    for (int i = 0; i < 30; i++) {
+	    for (int i = 0; i < 10; i++) {
 		corriereService.createCorriere();
 	    }
 	    log.info("Corrieri creati!");
@@ -43,12 +38,7 @@ public class CommerceRunner implements ApplicationRunner {
 	    }
 	    log.info("Azienda creata!");
 	}
-	if (ordineService.findAll().isEmpty()) {
-	    for (int i = 0; i < 20; i++) {
-		ordineService.createOrdine();
-	    }
-	    log.info("Ordini creati! - Fatture create!");
-	}
+
 	if (articoloService.findAll().isEmpty()) {
 	    for (int i = 0; i < 1; i++) {
 		articoloService.createArticolo1();
@@ -75,11 +65,6 @@ public class CommerceRunner implements ApplicationRunner {
 	    }
 	    log.info("Articoli creati!");
 	}
-
-	/*
-	 * if (utenteService.findAll().isEmpty()) { for (int i = 0; i < 1; i++) {
-	 * utenteService.createUtente(); } log.info("Utente creata!"); }
-	 */
 
     }
 

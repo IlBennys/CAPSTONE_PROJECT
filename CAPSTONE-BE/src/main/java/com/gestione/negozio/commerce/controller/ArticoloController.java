@@ -3,6 +3,7 @@ package com.gestione.negozio.commerce.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestione.negozio.commerce.model.Articolo;
 import com.gestione.negozio.commerce.service.ArticoloService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/articolo")
 public class ArticoloController {
@@ -29,22 +31,22 @@ public class ArticoloController {
 
     @GetMapping("/prezzo/{s1}&{s2}")
     public ResponseEntity<?> findAllArticoloByPrezzo(@PathVariable String s1, @PathVariable String s2) {
-	return new ResponseEntity<>(articoloService.findAllByPrezzo(s1, s2), HttpStatus.FOUND);
+	return new ResponseEntity<>(articoloService.findAllByPrezzo(s1, s2), HttpStatus.OK);
     }
 
     @GetMapping("/name/{name}")
     public ResponseEntity<?> findAllArticoloByName(@PathVariable String name) {
-	return new ResponseEntity<>(articoloService.findAllByName(name), HttpStatus.FOUND);
+	return new ResponseEntity<>(articoloService.findAllByName(name), HttpStatus.OK);
     }
 
     @GetMapping("/colors/{name}")
     public ResponseEntity<?> findAllArticoloByColor(@PathVariable String name) {
-	return new ResponseEntity<>(articoloService.findAllByColor(name), HttpStatus.FOUND);
+	return new ResponseEntity<>(articoloService.findAllByColor(name), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findArticoloById(@PathVariable Long id) {
-	return new ResponseEntity<>(articoloService.FindArticoloById(id), HttpStatus.FOUND);
+	return new ResponseEntity<>(articoloService.FindArticoloById(id), HttpStatus.OK);
     }
 
     @PostMapping

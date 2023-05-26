@@ -1,0 +1,1466 @@
+{
+	"info": {
+		"_postman_id": "4f1e7398-82e6-4446-8bb0-f456772aede6",
+		"name": "Capstone Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25787737"
+	},
+	"item": [
+		{
+			"name": "JWT Autenticazione",
+			"item": [
+				{
+					"name": "Registrazione",
+					"item": [
+						{
+							"name": "Registrazione USER",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.user\",\r\n    \"email\": \"tester.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\"ROLE_USER\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registrazione ADMIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"Admin\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.admin\",\r\n    \"email\": \"tester.A@example.com\",\r\n    \"password\": \"d9sfgG8sle?\",\r\n    \"dataNascita\": \"19/06/2002\",\r\n    \"indirizzo\": \"Via Test\",\r\n    \"numeroTelefono\": \"+39 336 2544875\",\r\n    \"roles\": [\r\n        \"ROLE_ADMIN\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Login USER",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.user\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login ADMIN",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.admin\",\r\n    \"password\": \"d9sfgG8sle?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Articoli",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutti gli articoli",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc2MDY5NywiZXhwIjoxNjg1MzY1NDk3fQ.vk6Nu1qV6P1tt5OdA9UzaSrsI4LXA1NSGSXzG_yMkfOS4HWLFsj0d3nYmBUoTfMP",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova un articolo dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDg0OTQ3MSwiZXhwIjoxNjg1NDU0MjcxfQ.yH-tFaZTy6LSzpJ4J4D1GZKvKCFSanFwZFjgSo9LVKGMt7ePVwmKoGYG8VT1RyxT",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aggiungi un articolo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTAwNTM1MywiZXhwIjoxNjg1NjEwMTUzfQ.FxQuIeIIieFesE82rd3Uyy4i9Tuc_6TNvzywNilyrnrKTOP_9YMQ-zeFFQdgtILy",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"PROVA\",\r\n    \"prezzo\": \"$ 307,06\",\r\n    \"descrizione\": \"orchid\",\r\n    \"marca\": \"Jewelry & Toys\",\r\n    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n    \"quantità\": 28\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/articolo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifica un articolo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"PROVA\",\r\n    \"prezzo\": \"$ 307,06\",\r\n    \"descrizione\": \"orchid\",\r\n    \"marca\": \"Jewelry & Toys\",\r\n    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n    \"quantità\": 28\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un articolo dall'oggetto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"nome\": \"PROVA\",\r\n    \"prezzo\": \"$ 307,06\",\r\n    \"descrizione\": \"orchid\",\r\n    \"marca\": \"Jewelry & Toys\",\r\n    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n    \"quantità\": 28\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/articolo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un articolo dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDg0MDIyMSwiZXhwIjoxNjg1NDQ1MDIxfQ.Cc2Fq8JeGRzwtlFb4UkXGS0v3-3JwUYipx1bYfkyuYIYat9n-IaB7ShXYCMrwdQf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/articolo/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articolo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Carrello",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutti i carrelli",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc2MDY5NywiZXhwIjoxNjg1MzY1NDk3fQ.vk6Nu1qV6P1tt5OdA9UzaSrsI4LXA1NSGSXzG_yMkfOS4HWLFsj0d3nYmBUoTfMP",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/carrello",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"carrello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova un carrello dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDg1MDYzNCwiZXhwIjoxNjg1NDU1NDM0fQ.Xo5E3fErplaonhYinOmfRj6qMP0fRzuzpQykXpxgzpv3XvHfbWi-gkgUbsv3uYeV",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/carrello/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"carrello",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aggiungi un articolo al carrello",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc2MTM1OSwiZXhwIjoxNjg1MzY2MTU5fQ.Mpl4n-tYUUPNA5-HsFRIsvUrJiE2vqRcgt84E8E5gMRovsI4UTmEaOvZfocEWOGa",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"articoli\": [\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"Heavy Duty Bronze Hat\",\r\n            \"prezzo\": \"$ 343,61\",\r\n            \"descrizione\": \"magenta\",\r\n            \"marca\": \"Beauty & Industrial\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 82\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"nome\": \"Durable Paper Hat\",\r\n            \"prezzo\": \"$ 485,76\",\r\n            \"descrizione\": \"cyan\",\r\n            \"marca\": \"Books & Industrial\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 59\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nome\": \"Lightweight Bronze Knife\",\r\n            \"prezzo\": \"$ 412,76\",\r\n            \"descrizione\": \"white\",\r\n            \"marca\": \"Grocery\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 38\r\n        }\r\n    ],\r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/carrello/:idCarrello/articoli/:idArticoli",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"carrello",
+										":idCarrello",
+										"articoli",
+										":idArticoli"
+									],
+									"variable": [
+										{
+											"key": "idCarrello",
+											"value": "1"
+										},
+										{
+											"key": "idArticoli",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un articolo dal carrello dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc2NzQwMiwiZXhwIjoxNjg1MzcyMjAyfQ.ilCsh9YquZjY5yR9e1vO1FybLL6i7fz6YM9fNEVQ27tmezC92GBcQA9zZi8wnkCs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/carrello/:idCarrello/articoli/:idArticoli",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"carrello",
+										":idCarrello",
+										"articoli",
+										":idArticoli"
+									],
+									"variable": [
+										{
+											"key": "idCarrello",
+											"value": "1"
+										},
+										{
+											"key": "idArticoli",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Azienda",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutte le aziende",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/azienda",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova un'azienda dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/azienda/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aggiungi un'azienda",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 2,\r\n    \"nome\": \"PROVA\",\r\n    \"partitaIva\": 894661018,\r\n    \"codiceFiscale\": 894661018,\r\n    \"pec\": \"f.gaming@pec.it\",\r\n    \"città\": \"Torino\",\r\n    \"corrieri\": [\r\n        {\r\n            \"id\": 1,\r\n            \"corriere\": \"DHL\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/azienda",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifica un'azienda",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"PROVA\",\r\n    \"partitaIva\": 894661018,\r\n    \"codiceFiscale\": 894661018,\r\n    \"pec\": \"f.gaming@pec.it\",\r\n    \"città\": \"Torino\",\r\n    \"corrieri\": [\r\n        {\r\n            \"id\": 1,\r\n            \"corriere\": \"DHL\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/azienda/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un'azienda dall'oggetto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"FUTURE GAMING\",\r\n    \"partitaIva\": 894661018,\r\n    \"codiceFiscale\": 894661018,\r\n    \"pec\": \"f.gaming@pec.it\",\r\n    \"città\": \"Torino\",\r\n    \"corrieri\": [\r\n        {\r\n            \"id\": 1,\r\n            \"corriere\": \"DHL\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/azienda",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un'azienda dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDg0MDIyMSwiZXhwIjoxNjg1NDQ1MDIxfQ.Cc2Fq8JeGRzwtlFb4UkXGS0v3-3JwUYipx1bYfkyuYIYat9n-IaB7ShXYCMrwdQf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/azienda/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"azienda",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Fatture",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutte le fatture",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTAwNjAxNCwiZXhwIjoxNjg1NjEwODE0fQ.peIQJKuF0ldcXBMFX7fDaD8ALNW0FbhZkoffDHdGYXRFDxl51VXOaCe7vRI6OjV4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova una fattura dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aggiungi una fattura",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc4NjU1MSwiZXhwIjoxNjg1MzkxMzUxfQ.fc6aOxYIWEMLGssCjfY0LxjjCCAPM0rY6TOCpkbUaE0vmVE6a7GF-ds5tIYDUr4K",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantitaArtcolo\": 15,\r\n    \"importoTotale\": 500,\r\n    \"ordine\": {\r\n        \"id\": 5,\r\n        \"numero\": 2910,\r\n        \"riepilogo\": \"RIEPILOGO\",\r\n        \"dataOrdine\": \"2023-05-12\",\r\n        \"dataConsegna\": \"2023-05-15\",\r\n        \"statoOrdine\": \"CONSEGNATO\",\r\n        \"prezzoConsegna\": 2.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/fattura",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifica una fattura",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTAwNjAxNCwiZXhwIjoxNjg1NjEwODE0fQ.peIQJKuF0ldcXBMFX7fDaD8ALNW0FbhZkoffDHdGYXRFDxl51VXOaCe7vRI6OjV4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"quantitaArtcolo\": 15,\r\n    \"importoTotale\": 500,\r\n    \"ordine\": {\r\n    \r\n        \"numero\": 2910,\r\n        \"riepilogo\": \"RIEPILOGO\",\r\n        \"dataOrdine\": \"2023-05-12\",\r\n        \"dataConsegna\": \"2023-05-15\",\r\n        \"statoOrdine\": \"CONSEGNATO\",\r\n        \"prezzoConsegna\": 2.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina una fattura dall'oggetto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"quantitaArtcolo\": 15,\r\n    \"importoTotale\": 500,\r\n    \"ordine\": {\r\n        \"id\": 5,\r\n        \"numero\": 2910,\r\n        \"riepilogo\": \"RIEPILOGO\",\r\n        \"dataOrdine\": \"2023-05-12\",\r\n        \"dataConsegna\": \"2023-05-15\",\r\n        \"statoOrdine\": \"CONSEGNATO\",\r\n        \"prezzoConsegna\": 2.99\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/fattura",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina una fattura dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc5OTgwNywiZXhwIjoxNjg1NDA0NjA3fQ.QGVQqOi3Op4S5AzT66B0f17KPYkonrJzD5AcvbBAuGhgRiUE0CuL98H_a_h1lhkW",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/fattura/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"fattura",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ordini",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutti gli ordini",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc1NjUxNCwiZXhwIjoxNjg1MzYxMzE0fQ.1MUVV95cDtmQFx0nL5LeUic0uouR0_7qAEl7m_bzDlbcqw1TxxBbisRahRzpvea2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova un ordine dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc2ODExMSwiZXhwIjoxNjg1MzcyOTExfQ.cuHyfwadUs76OdFM8r8kYSSiBERY2btqaWBOiElhUkXG3IOKK3ayZ6NvsKSRhKbw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aggiungi un ordine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDc1ODkxOSwiZXhwIjoxNjg1MzYzNzE5fQ.aND5yZCNihyX4Ox6Xy_dRv77XX2synogIaCS6kMQodsPMmOAdW3kmzgifHo2FEUP",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/user/1/carrello/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										"user",
+										"1",
+										"carrello",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifica un ordine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMTA4NiwiZXhwIjoxNjg1NDA1ODg2fQ.vaCqkbUc0k7JAKVjYWzc3LCwEQRuoZ-3luEH7qXUnRPjyo_zmJrZ6i1dgZADb4VB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 21,\r\n    \"numero\": 2257,\r\n    \"riepilogo\": \"RIEPILOGO\",\r\n    \"dataOrdine\": \"2023-05-12\",\r\n    \"dataConsegna\": \"2023-05-15\",\r\n    \"statoOrdine\": \"IN_CONSEGNA\",\r\n    \"prezzoConsegna\": 2.99,\r\n    \"fattura\": {\r\n        \"id\": 5,\r\n        \"quantitaArtcolo\": 15,\r\n        \"importoTotale\": 500\r\n    },\r\n    \"azienda\": {\r\n        \"id\": 1,\r\n        \"nome\": \"FUTURE GAMING\",\r\n        \"partitaIva\": 894661018,\r\n        \"codiceFiscale\": 894661018,\r\n        \"pec\": \"f.gaming@pec.it\",\r\n        \"città\": \"Torino\",\r\n        \"corrieri\": [\r\n            {\r\n                \"id\": 1,\r\n                \"corriere\": \"GLS\"\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"corriere\": \"UPS\"\r\n            },\r\n            {\r\n                \"id\": 3,\r\n                \"corriere\": \"GLS\"\r\n            }\r\n        ]\r\n    },\r\n  \r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un ordine dall'oggetto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4Mzg0NDk2NywiZXhwIjoxNjg0NDQ5NzY3fQ.Qy9iesm6TDZooRTrTHngKJzwvqB34aCRWDotfZVV6NI4LGocesNTMiekIwlxsDj_",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 5,\r\n    \"numero\": 2257,\r\n    \"riepilogo\": \"RIEPILOGO\",\r\n    \"dataOrdine\": \"2023-05-12\",\r\n    \"dataConsegna\": \"2023-05-15\",\r\n    \"statoOrdine\": \"IN_CONSEGNA\",\r\n    \"prezzoConsegna\": 2.99,\r\n    \"fattura\": {\r\n        \"id\": 5,\r\n        \"quantitaArtcolo\": 15,\r\n        \"importoTotale\": 500\r\n    },\r\n    \"azienda\": {\r\n        \"id\": 1,\r\n        \"nome\": \"FUTURE GAMING\",\r\n        \"partitaIva\": 894661018,\r\n        \"codiceFiscale\": 894661018,\r\n        \"pec\": \"f.gaming@pec.it\",\r\n        \"città\": \"Torino\",\r\n        \"corrieri\": [\r\n            {\r\n                \"id\": 1,\r\n                \"corriere\": \"GLS\"\r\n            },\r\n            {\r\n                \"id\": 2,\r\n                \"corriere\": \"UPS\"\r\n            },\r\n            {\r\n                \"id\": 3,\r\n                \"corriere\": \"GLS\"\r\n            }\r\n        ]\r\n    },\r\n    \"articoli\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"Intelligent Aluminum Bag\",\r\n            \"prezzo\": \"$ 370,08\",\r\n            \"descrizione\": \"sky blue\",\r\n            \"marca\": \"Beauty, Computers & Garden\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 23\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"Heavy Duty Concrete Bag\",\r\n            \"prezzo\": \"$ 29,61\",\r\n            \"descrizione\": \"turquoise\",\r\n            \"marca\": \"Shoes\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 42\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"nome\": \"Practical Silk Bench\",\r\n            \"prezzo\": \"$ 194,36\",\r\n            \"descrizione\": \"teal\",\r\n            \"marca\": \"Home\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 97\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nome\": \"Intelligent Wooden Shoes\",\r\n            \"prezzo\": \"$ 99,16\",\r\n            \"descrizione\": \"purple\",\r\n            \"marca\": \"Jewelry\",\r\n            \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n            \"quantità\": 72\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/ordine",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un ordine dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMjgxNCwiZXhwIjoxNjg1NDA3NjE0fQ.VwZtWI5Kjicmbpe1QpYpF5TmS_pZZkmnsc9pK-VAe-VjJ_lzmWiHCDpkPu8IuO5g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/ordine/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"ordine",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Utenti",
+			"item": [
+				{
+					"name": "Crud Base",
+					"item": [
+						{
+							"name": "Trova tutti gli utenti",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMzkzNCwiZXhwIjoxNjg1NDA4NzM0fQ.sc_FIgVdzawSeDzg_Ei1mcK7Tekn0WPoGsJyep7KojtjulGQ9BFzZg0d1DyAhEnL",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Trova un utente dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NTAyMDk5OSwiZXhwIjoxNjg1NjI1Nzk5fQ.4TuXCCFjMVFnC8Wq7Pbsak7wfIx5bFYnFe4jZZlbWh9ogTvwW16plPU6zAW1vBxf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/user/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifica un utente",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMzkzNCwiZXhwIjoxNjg1NDA4NzM0fQ.sc_FIgVdzawSeDzg_Ei1mcK7Tekn0WPoGsJyep7KojtjulGQ9BFzZg0d1DyAhEnL",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/user/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un utente dall'oggetto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMzkzNCwiZXhwIjoxNjg1NDA4NzM0fQ.sc_FIgVdzawSeDzg_Ei1mcK7Tekn0WPoGsJyep7KojtjulGQ9BFzZg0d1DyAhEnL",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"indirizzo\": \"Rotonda Walter 6, Appartamento 23\",\r\n    \"numeroTelefono\": \"067 041 6190\",\r\n    \"dataNascita\": \"2005-05-19\",\r\n    \"ordini\": [\r\n        {\r\n            \"id\": 1,\r\n            \"numero\": 7079,\r\n            \"riepilogo\": \"RIEPILOGO\",\r\n            \"dataOrdine\": \"2023-05-12\",\r\n            \"dataConsegna\": \"2023-05-15\",\r\n            \"statoOrdine\": \"CONSEGNATO\",\r\n            \"prezzoConsegna\": 2.99,\r\n            \"fattura\": {\r\n                \"id\": 1,\r\n                \"quantitaArtcolo\": 15,\r\n                \"importoTotale\": 500\r\n            },\r\n            \"azienda\": {\r\n                \"id\": 1,\r\n                \"nome\": \"FUTURE GAMING\",\r\n                \"partitaIva\": 894661018,\r\n                \"codiceFiscale\": 894661018,\r\n                \"pec\": \"f.gaming@pec.it\",\r\n                \"città\": \"Torino\",\r\n                \"corrieri\": [\r\n                    {\r\n                        \"id\": 1,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 2,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 4,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 5,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 6,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 7,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 8,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 9,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 10,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 11,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 12,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 13,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 14,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 15,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 16,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 17,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 18,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 19,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 20,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 21,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 22,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 23,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 24,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 25,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 26,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 27,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 28,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 29,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 30,\r\n                        \"corriere\": \"GLS\"\r\n                    }\r\n                ]\r\n            },\r\n            \"articoli\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Intelligent Aluminum Bag\",\r\n                    \"prezzo\": \"$ 370,08\",\r\n                    \"descrizione\": \"sky blue\",\r\n                    \"marca\": \"Beauty, Computers & Garden\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 23\r\n                },\r\n                {\r\n                    \"id\": 2,\r\n                    \"nome\": \"Heavy Duty Concrete Bag\",\r\n                    \"prezzo\": \"$ 29,61\",\r\n                    \"descrizione\": \"turquoise\",\r\n                    \"marca\": \"Shoes\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 42\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"nome\": \"Practical Silk Bench\",\r\n                    \"prezzo\": \"$ 194,36\",\r\n                    \"descrizione\": \"teal\",\r\n                    \"marca\": \"Home\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 97\r\n                },\r\n                {\r\n                    \"id\": 4,\r\n                    \"nome\": \"Intelligent Wooden Shoes\",\r\n                    \"prezzo\": \"$ 99,16\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 72\r\n                },\r\n                {\r\n                    \"id\": 5,\r\n                    \"nome\": \"Gorgeous Marble Bottle\",\r\n                    \"prezzo\": \"$ 114,17\",\r\n                    \"descrizione\": \"teal\",\r\n                    \"marca\": \"Baby, Sports & Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 16\r\n                },\r\n                {\r\n                    \"id\": 6,\r\n                    \"nome\": \"Sleek Marble Lamp\",\r\n                    \"prezzo\": \"$ 287,85\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Automotive, Computers & Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 79\r\n                },\r\n                {\r\n                    \"id\": 7,\r\n                    \"nome\": \"Intelligent Steel Bottle\",\r\n                    \"prezzo\": \"$ 300,56\",\r\n                    \"descrizione\": \"black\",\r\n                    \"marca\": \"Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 36\r\n                },\r\n                {\r\n                    \"id\": 8,\r\n                    \"nome\": \"Durable Paper Pants\",\r\n                    \"prezzo\": \"$ 114,71\",\r\n                    \"descrizione\": \"silver\",\r\n                    \"marca\": \"Health\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 52\r\n                },\r\n                {\r\n                    \"id\": 9,\r\n                    \"nome\": \"Durable Plastic Pants\",\r\n                    \"prezzo\": \"$ 333,01\",\r\n                    \"descrizione\": \"plum\",\r\n                    \"marca\": \"Beauty\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 45\r\n                },\r\n                {\r\n                    \"id\": 10,\r\n                    \"nome\": \"Fantastic Steel Computer\",\r\n                    \"prezzo\": \"$ 56,03\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Garden, Industrial & Tools\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 50\r\n                },\r\n                {\r\n                    \"id\": 11,\r\n                    \"nome\": \"Ergonomic Iron Bag\",\r\n                    \"prezzo\": \"$ 241,51\",\r\n                    \"descrizione\": \"lime\",\r\n                    \"marca\": \"Health\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 41\r\n                },\r\n                {\r\n                    \"id\": 12,\r\n                    \"nome\": \"Mediocre Silk Chair\",\r\n                    \"prezzo\": \"$ 115,70\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Baby, Computers & Home\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 73\r\n                },\r\n                {\r\n                    \"id\": 13,\r\n                    \"nome\": \"Lightweight Wool Plate\",\r\n                    \"prezzo\": \"$ 305,25\",\r\n                    \"descrizione\": \"indigo\",\r\n                    \"marca\": \"Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 27\r\n                },\r\n                {\r\n                    \"id\": 14,\r\n                    \"nome\": \"Awesome Granite Watch\",\r\n                    \"prezzo\": \"$ 192,23\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Kids & Outdoors\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 85\r\n                },\r\n                {\r\n                    \"id\": 15,\r\n                    \"nome\": \"Heavy Duty Aluminum Bag\",\r\n                    \"prezzo\": \"$ 75,60\",\r\n                    \"descrizione\": \"olive\",\r\n                    \"marca\": \"Baby\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 84\r\n                },\r\n                {\r\n                    \"id\": 16,\r\n                    \"nome\": \"Practical Iron Bench\",\r\n                    \"prezzo\": \"$ 108,93\",\r\n                    \"descrizione\": \"gold\",\r\n                    \"marca\": \"Books, Grocery & Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 31\r\n                },\r\n                {\r\n                    \"id\": 17,\r\n                    \"nome\": \"Practical Linen Wallet\",\r\n                    \"prezzo\": \"$ 87,48\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Beauty, Home & Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 75\r\n                },\r\n                {\r\n                    \"id\": 18,\r\n                    \"nome\": \"Intelligent Marble Table\",\r\n                    \"prezzo\": \"$ 340,85\",\r\n                    \"descrizione\": \"turquoise\",\r\n                    \"marca\": \"Beauty\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 36\r\n                },\r\n                {\r\n                    \"id\": 19,\r\n                    \"nome\": \"Small Linen Car\",\r\n                    \"prezzo\": \"$ 486,50\",\r\n                    \"descrizione\": \"mint green\",\r\n                    \"marca\": \"Games\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 75\r\n                },\r\n                {\r\n                    \"id\": 20,\r\n                    \"nome\": \"Mediocre Iron Bag\",\r\n                    \"prezzo\": \"$ 118,24\",\r\n                    \"descrizione\": \"indigo\",\r\n                    \"marca\": \"Electronics & Kids\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 6\r\n                }\r\n            ]\r\n        },\r\n         {\r\n            \"id\": 2,\r\n            \"numero\": 7079,\r\n            \"riepilogo\": \"RIEPILOGO\",\r\n            \"dataOrdine\": \"2023-05-12\",\r\n            \"dataConsegna\": \"2023-05-15\",\r\n            \"statoOrdine\": \"CONSEGNATO\",\r\n            \"prezzoConsegna\": 2.99,\r\n            \"fattura\": {\r\n                \"id\": 1,\r\n                \"quantitaArtcolo\": 15,\r\n                \"importoTotale\": 500\r\n            },\r\n            \"azienda\": {\r\n                \"id\": 1,\r\n                \"nome\": \"FUTURE GAMING\",\r\n                \"partitaIva\": 894661018,\r\n                \"codiceFiscale\": 894661018,\r\n                \"pec\": \"f.gaming@pec.it\",\r\n                \"città\": \"Torino\",\r\n                \"corrieri\": [\r\n                    {\r\n                        \"id\": 1,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 2,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 4,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 5,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 6,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 7,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 8,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 9,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 10,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 11,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 12,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 13,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 14,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 15,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 16,\r\n                        \"corriere\": \"UPS\"\r\n                    },\r\n                    {\r\n                        \"id\": 17,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 18,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 19,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 20,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 21,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 22,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 23,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 24,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 25,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 26,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 27,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 28,\r\n                        \"corriere\": \"DHL\"\r\n                    },\r\n                    {\r\n                        \"id\": 29,\r\n                        \"corriere\": \"GLS\"\r\n                    },\r\n                    {\r\n                        \"id\": 30,\r\n                        \"corriere\": \"GLS\"\r\n                    }\r\n                ]\r\n            },\r\n            \"articoli\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Intelligent Aluminum Bag\",\r\n                    \"prezzo\": \"$ 370,08\",\r\n                    \"descrizione\": \"sky blue\",\r\n                    \"marca\": \"Beauty, Computers & Garden\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 23\r\n                },\r\n                {\r\n                    \"id\": 2,\r\n                    \"nome\": \"Heavy Duty Concrete Bag\",\r\n                    \"prezzo\": \"$ 29,61\",\r\n                    \"descrizione\": \"turquoise\",\r\n                    \"marca\": \"Shoes\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 42\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"nome\": \"Practical Silk Bench\",\r\n                    \"prezzo\": \"$ 194,36\",\r\n                    \"descrizione\": \"teal\",\r\n                    \"marca\": \"Home\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 97\r\n                },\r\n                {\r\n                    \"id\": 4,\r\n                    \"nome\": \"Intelligent Wooden Shoes\",\r\n                    \"prezzo\": \"$ 99,16\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 72\r\n                },\r\n                {\r\n                    \"id\": 5,\r\n                    \"nome\": \"Gorgeous Marble Bottle\",\r\n                    \"prezzo\": \"$ 114,17\",\r\n                    \"descrizione\": \"teal\",\r\n                    \"marca\": \"Baby, Sports & Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 16\r\n                },\r\n                {\r\n                    \"id\": 6,\r\n                    \"nome\": \"Sleek Marble Lamp\",\r\n                    \"prezzo\": \"$ 287,85\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Automotive, Computers & Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 79\r\n                },\r\n                {\r\n                    \"id\": 7,\r\n                    \"nome\": \"Intelligent Steel Bottle\",\r\n                    \"prezzo\": \"$ 300,56\",\r\n                    \"descrizione\": \"black\",\r\n                    \"marca\": \"Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 36\r\n                },\r\n                {\r\n                    \"id\": 8,\r\n                    \"nome\": \"Durable Paper Pants\",\r\n                    \"prezzo\": \"$ 114,71\",\r\n                    \"descrizione\": \"silver\",\r\n                    \"marca\": \"Health\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 52\r\n                },\r\n                {\r\n                    \"id\": 9,\r\n                    \"nome\": \"Durable Plastic Pants\",\r\n                    \"prezzo\": \"$ 333,01\",\r\n                    \"descrizione\": \"plum\",\r\n                    \"marca\": \"Beauty\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 45\r\n                },\r\n                {\r\n                    \"id\": 10,\r\n                    \"nome\": \"Fantastic Steel Computer\",\r\n                    \"prezzo\": \"$ 56,03\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Garden, Industrial & Tools\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 50\r\n                },\r\n                {\r\n                    \"id\": 11,\r\n                    \"nome\": \"Ergonomic Iron Bag\",\r\n                    \"prezzo\": \"$ 241,51\",\r\n                    \"descrizione\": \"lime\",\r\n                    \"marca\": \"Health\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 41\r\n                },\r\n                {\r\n                    \"id\": 12,\r\n                    \"nome\": \"Mediocre Silk Chair\",\r\n                    \"prezzo\": \"$ 115,70\",\r\n                    \"descrizione\": \"purple\",\r\n                    \"marca\": \"Baby, Computers & Home\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 73\r\n                },\r\n                {\r\n                    \"id\": 13,\r\n                    \"nome\": \"Lightweight Wool Plate\",\r\n                    \"prezzo\": \"$ 305,25\",\r\n                    \"descrizione\": \"indigo\",\r\n                    \"marca\": \"Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 27\r\n                },\r\n                {\r\n                    \"id\": 14,\r\n                    \"nome\": \"Awesome Granite Watch\",\r\n                    \"prezzo\": \"$ 192,23\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Kids & Outdoors\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 85\r\n                },\r\n                {\r\n                    \"id\": 15,\r\n                    \"nome\": \"Heavy Duty Aluminum Bag\",\r\n                    \"prezzo\": \"$ 75,60\",\r\n                    \"descrizione\": \"olive\",\r\n                    \"marca\": \"Baby\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 84\r\n                },\r\n                {\r\n                    \"id\": 16,\r\n                    \"nome\": \"Practical Iron Bench\",\r\n                    \"prezzo\": \"$ 108,93\",\r\n                    \"descrizione\": \"gold\",\r\n                    \"marca\": \"Books, Grocery & Jewelry\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 31\r\n                },\r\n                {\r\n                    \"id\": 17,\r\n                    \"nome\": \"Practical Linen Wallet\",\r\n                    \"prezzo\": \"$ 87,48\",\r\n                    \"descrizione\": \"lavender\",\r\n                    \"marca\": \"Beauty, Home & Toys\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 75\r\n                },\r\n                {\r\n                    \"id\": 18,\r\n                    \"nome\": \"Intelligent Marble Table\",\r\n                    \"prezzo\": \"$ 340,85\",\r\n                    \"descrizione\": \"turquoise\",\r\n                    \"marca\": \"Beauty\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 36\r\n                },\r\n                {\r\n                    \"id\": 19,\r\n                    \"nome\": \"Small Linen Car\",\r\n                    \"prezzo\": \"$ 486,50\",\r\n                    \"descrizione\": \"mint green\",\r\n                    \"marca\": \"Games\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 75\r\n                },\r\n                {\r\n                    \"id\": 20,\r\n                    \"nome\": \"Mediocre Iron Bag\",\r\n                    \"prezzo\": \"$ 118,24\",\r\n                    \"descrizione\": \"indigo\",\r\n                    \"marca\": \"Electronics & Kids\",\r\n                    \"img\": \"https://static.vecteezy.com/ti/vettori-gratis/p1/4821112-colore-bianco-pollo-cartone-animato-illustrazione-design-design-per-bambini-libro-gratuito-vettoriale.jpg\",\r\n                    \"quantità\": 6\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"user\": {\r\n        \"id\": 1,\r\n        \"firstname\": \"Admin\",\r\n        \"lastname\": \"Tester\",\r\n        \"username\": \"TEST-r.admin\",\r\n        \"email\": \"tester.A@example.com\",\r\n        \"password\": \"$2a$10$eoLZsjjCSUNCLVCWdq4xr.kh3ri5htiBtODjhVOKcl.MOfYbaQF7m\",\r\n        \"roles\": [\r\n            {\r\n                \"id\": 1,\r\n                \"roleName\": \"ROLE_ADMIN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Elimina un utente dall'id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4NDgwMzkzNCwiZXhwIjoxNjg1NDA4NzM0fQ.sc_FIgVdzawSeDzg_Ei1mcK7Tekn0WPoGsJyep7KojtjulGQ9BFzZg0d1DyAhEnL",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/user/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
