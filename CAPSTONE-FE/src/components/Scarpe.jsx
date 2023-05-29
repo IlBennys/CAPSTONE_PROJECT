@@ -15,7 +15,7 @@ function Scarpe() {
         method: "POST",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXJlci5VQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg1MDI5MTk1LCJleHAiOjE2ODU2MzM5OTV9.Z6TXffusNZrKvSIqzHu9QR-QOTv1aOMFAZYUkQO-XZkAXRhyue807Tu6HBU31wSl",
+            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NTE0MjQ5OSwiZXhwIjoxNjg1NzQ3Mjk5fQ.DYSajLBx4TnRBSwEqqY7RFtF9tIaWLQlMYZaKdC5mESwyEigyua_TlAHZL0wer7m",
           "Content-Type": "application/json",
         },
       })

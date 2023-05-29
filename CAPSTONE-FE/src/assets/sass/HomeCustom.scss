@@ -1,8 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+$arancio: #ff3800;
+
 .totalissimo {
   background-image: url("../nike_hompage.png");
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
-  height: 90vh;
+  height: 85vh;
   background-size: contain;
+}
+.divimg {
+  position: fixed;
+  top: 14%;
+  left: 2%;
+  .pp {
+    color: $arancio;
+    font-size: larger;
+    font-weight: 500;
+    font-family: "Lobster", cursive;
+    position: fixed;
+    left: 7%;
+  }
+}
+.divscritta {
+  position: fixed;
+  top: 8%;
+  right: 2%;
+  .pi {
+    position: fixed;
+    right: 8%;
+    color: $arancio;
+    font-size: larger;
+    font-weight: 500;
+    font-family: "Lobster", cursive;
+    .aa {
+      color: $arancio;
+      text-decoration: none;
+    }
+  }
+  .pi:hover {
+    transform: scale(1.2);
+  }
+}
+//-------------------------------------------------------------------------------------
+
+.a12 {
+  font-family: "Lobster", cursive;
+  text-decoration: none;
+  color: $arancio;
+  font-weight: bold;
+}
+.a12:hover {
+  color: #7f0101;
+}
+.imgscarpee {
+  object-fit: cover;
+  transform: rotate(-28deg);
+}
+
+.contenitore {
+  position: fixed;
+  bottom: 0%;
+  left: 2%;
+  width: 96%;
 }
