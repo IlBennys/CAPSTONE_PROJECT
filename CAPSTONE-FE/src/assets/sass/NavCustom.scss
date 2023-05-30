@@ -7,7 +7,13 @@ $bluScuro: #183061;
   top: 0%;
   z-index: 3;
 }
-
+.numeretto {
+  position: absolute;
+  width: 21px;
+  font-size: 10px;
+  height: 17px;
+  background-color: orangered;
+}
 .caratteraGrande {
   font-size: larger;
 }

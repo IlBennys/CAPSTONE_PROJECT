@@ -11,6 +11,7 @@ import Scarpe from "./components/Scarpe"
 import Felpe from "./components/Felpe"
 import Cappelli from "./components/Cappelli"
 import Carrello from "./components/Carrello"
+import OrdineFattura from "./components/OrdineFattura"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/felpe" element={<Felpe />} />
                 <Route path="/cappelli" element={<Cappelli />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/ordine" element={<OrdineFattura />} />
                 <Route path="/carrello" element={<Carrello />} />
               </Routes>
             </Col>

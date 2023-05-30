@@ -1,18 +1,21 @@
 import "../assets/sass/CarrelloCustom.scss"
 import { useEffect, useState } from "react"
 import { Button, Card } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { creaOrdine } from "../redux/actions"
 
 function Carrello() {
   const [carrello, setCarrello] = useState([])
   const [stato, setStato] = useState(false)
+  const token = useSelector((state) => state.user.token)
+  const dispatch = useDispatch()
 
   const deleteCarrello = async (id, id2) => {
     try {
       const response = await fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
         method: "DELETE",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NTE0MjQ5OSwiZXhwIjoxNjg1NzQ3Mjk5fQ.DYSajLBx4TnRBSwEqqY7RFtF9tIaWLQlMYZaKdC5mESwyEigyua_TlAHZL0wer7m",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
@@ -31,8 +34,7 @@ function Carrello() {
       const response = await fetch("http://localhost:8080/api/carrello/1", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NTE0MjQ5OSwiZXhwIjoxNjg1NzQ3Mjk5fQ.DYSajLBx4TnRBSwEqqY7RFtF9tIaWLQlMYZaKdC5mESwyEigyua_TlAHZL0wer7m",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
@@ -58,9 +60,7 @@ function Carrello() {
           <Card style={{ width: "18rem" }} key={i} className="mt-4 coloresfondo">
             <Card.Img className="h-50 scarpeimg" variant="top" src={e.img} />
             <Card.Title className="text-white text-center">{e.nomeArticoli}</Card.Title>
-            <Button className="coloresfondo my-1" variant="primary">
-              Acquista ora
-            </Button>
+
             <Button
               className="coloresfondo my-1"
               onClick={() => {
@@ -72,6 +72,13 @@ function Carrello() {
             </Button>
           </Card>
         ))}
+        <Button
+          className="coloresfondo w-50 h-50 mt-5 d-flex justify-content-center align-items-center"
+          variant="primary"
+          onClick={() => dispatch(creaOrdine(1, 1, token))}
+        >
+          Acquista ora
+        </Button>
       </div>
     </>
   )

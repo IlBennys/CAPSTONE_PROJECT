@@ -51,18 +51,17 @@ public class SecurityConfig {
 		.requestMatchers(HttpMethod.GET, "/api/articolo").permitAll()
 		.requestMatchers(HttpMethod.GET, "/api/carrello", "/api/azienda", "/api/fattura", "/api/ordine",
 			"/api/user")
-		.hasAnyRole("USER", "ADMIN").requestMatchers(HttpMethod.POST, "/api/carrello")
+		.hasAnyRole("USER", "ADMIN")
+		.requestMatchers(HttpMethod.POST, "/api/carrello", "/api/ordine", "/api/fattura")
 		.hasAnyRole("USER", "ADMIN").requestMatchers(HttpMethod.PUT, "/api/ordine", "/api/user")
 		.hasAnyRole("USER", "ADMIN").requestMatchers(HttpMethod.DELETE, "/api/carrello", "/api/user")
-		.hasAnyRole("USER", "ADMIN")
-		.requestMatchers(HttpMethod.POST, "/api/articolo", "/api/azienda", "/api/fattura", "/api/ordine")
+		.hasAnyRole("USER", "ADMIN").requestMatchers(HttpMethod.POST, "/api/articolo", "/api/azienda")
 		.hasRole("ADMIN").requestMatchers(HttpMethod.PUT, "/api/articolo", "/api/azienda", "/api/fattura")
 		.hasRole("ADMIN")
 		.requestMatchers(HttpMethod.DELETE, "/api/articolo", "/api/azienda", "/api/fattura", "/api/ordine")
 		.hasRole("ADMIN").anyRequest().authenticated())
 		.exceptionHandling(exception -> exception.authenticationEntryPoint(authenticationEntryPoint))
 		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
 	http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
 	return http.build();

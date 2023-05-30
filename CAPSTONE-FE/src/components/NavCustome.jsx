@@ -8,34 +8,41 @@ import { MdOutlineShoppingCart } from "react-icons/md"
 import logo from "../assets/LOGOnIKEE.png"
 import scritta from "../assets/NIKE SCRITTA.png"
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Badge, Button, NavDropdown } from "react-bootstrap"
+import { getCarrello, logoutUser } from "../redux/actions"
 
 const NavCustom = () => {
-  const [utente, setUtente] = useState([])
   const [isLogged, setisLogged] = useState(false)
+  const token = useSelector((state) => state.user.token)
+  const dispatch = useDispatch()
+  const carrello = useSelector((state) => state.user.carrello)
+  const idUser = useSelector((state) => state.user.username)
+  const [u, setU] = useState([])
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/user/1", {
+      const response = await fetch("http://localhost:8080/api/user", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NTE0MjQ5OSwiZXhwIjoxNjg1NzQ3Mjk5fQ.DYSajLBx4TnRBSwEqqY7RFtF9tIaWLQlMYZaKdC5mESwyEigyua_TlAHZL0wer7m",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
-      console.log(response)
       if (response.ok) {
         const data = await response.json()
-        console.log(data, "oooooooooooooooooooooooooooooooooo")
-        setUtente(data)
-        setisLogged(true)
+        console.log(data, "data")
+        const ut = data.filter((e) => e.username === idUser)
+        console.log(ut, "filter")
+        setU(ut[0])
+        console.log(ut, "u")
       }
     } catch (error) {
       alert("testComment", error)
     }
   }
   useEffect(() => {
-    getUser()
+    dispatch(getCarrello(1, token), getUser())
   }, [])
 
   return (
@@ -75,25 +82,49 @@ const NavCustom = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link className="caratteraGrande" href="carrello">
-                <MdOutlineShoppingCart />
-              </Nav.Link>
-              <Nav.Link className="caratteraGrande" eventKey={2} href="#memes">
-                <FiSearch />
-              </Nav.Link>
-              {isLogged ? (
-                <Nav>
-                  <Nav.Link className="caratteraGrande">Ciao {utente.username}</Nav.Link>{" "}
-                </Nav>
-              ) : (
-                <Nav>
-                  <Nav.Link className="caratteraGrande" href="login">
-                    accedi
+              {token !== "" ? (
+                <>
+                  <NavDropdown title={`Ciao ${u.username}`} className="caratteraGrande" id="basic-nav-dropdown">
+                    <NavDropdown.Item className="caratteraGrande" href="/profilo">
+                      Il mio profilo
+                    </NavDropdown.Item>
+                    <NavDropdown.Item className="caratteraGrande" href="/ordini">
+                      I miei ordini
+                    </NavDropdown.Item>
+                    <NavDropdown.Item className="caratteraGrande" href="/preferiti">
+                      Preferiti
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <Button
+                      className="w-100"
+                      onClick={() => {
+                        dispatch(logoutUser())
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </NavDropdown>
+                  <Nav.Link className="caratteraGrande" eventKey={2} href="#memes">
+                    <FiSearch />
                   </Nav.Link>
-                  <Nav.Link className="caratteraGrande" href="register">
+                  <Nav.Link className="caratteraGrande" href="carrello">
+                    <div className="position-relative">
+                      <MdOutlineShoppingCart />{" "}
+                      <Badge className="numeretto" bg="numeretto">
+                        {carrello.length}
+                      </Badge>
+                    </div>
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link className="caratteraGrande" href="/login">
+                    Accedi
+                  </Nav.Link>
+                  <Nav.Link className="caratteraGrande" href="/register">
                     registrati
                   </Nav.Link>
-                </Nav>
+                </>
               )}
             </Nav>
           </Navbar.Collapse>

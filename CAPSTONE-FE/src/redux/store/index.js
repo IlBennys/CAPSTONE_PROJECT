@@ -1,8 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
+
+import userReducer from "../reducers"
 import { encryptTransform } from "redux-persist-transform-encrypt"
-import index from "../reducer/index"
+
+/* import mainReducer from "../reducers"; */
 
 const persistConfig = {
   key: "root",
@@ -15,8 +18,7 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  profile: index,
-  // selectedProfile: ,
+  user: userReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

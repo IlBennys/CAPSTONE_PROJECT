@@ -2,8 +2,10 @@ import "../assets/sass/LoginCustom.scss"
 import userr from "../assets/User.png"
 import { ImUser } from "react-icons/im"
 import { RiLockPasswordFill } from "react-icons/ri"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap"
+import { useDispatch, useSelector } from "react-redux"
+import { getCarrello, loginUser } from "../redux/actions"
 function Login() {
   const user = {
     username: "",
@@ -11,6 +13,7 @@ function Login() {
   }
 
   const [input, setInput] = useState(user)
+  const dispatch = useDispatch()
   const [validated, setValidated] = useState(false)
 
   const handleSubmit = (event) => {
@@ -26,27 +29,6 @@ function Login() {
     setInput((prev) => ({ ...prev, [field]: value }))
   }
 
-  const postLogin = async () => {
-    try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(input),
-      })
-      console.log(response)
-      if (response.ok) {
-        const data = await response.json()
-        alert("sei entrato :) ")
-        console.log(data)
-        window.location.href = "http://localhost:3000/"
-      }
-    } catch (error) {
-      alert("testComment", error)
-    }
-  }
-
   return (
     <>
       <div className="MIX rounded-3 d-flex flex-column  mt-4 mb-3">
@@ -59,15 +41,13 @@ function Login() {
         <Form className="mt-3" noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="d-flex flex-column align-items-center mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-              <Form.Label id="label" className="text-white fw-semibold fst-italic">
-                Username
-              </Form.Label>
+              <Form.Label className="text-white label fw-semibold fst-italic">Username</Form.Label>
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend2">
                   <ImUser />
                 </InputGroup.Text>
                 <Form.Control
-                  id="coloreRegister"
+                  className="coloreRegister"
                   type="text"
                   placeholder="Username"
                   aria-describedby="inputGroupPrepend2"
@@ -79,15 +59,13 @@ function Login() {
             </Form.Group>
 
             <Form.Group as={Col} md="4" controlId="validationCustomPassword">
-              <Form.Label id="label" className="text-white fw-semibold fst-italic">
-                Password
-              </Form.Label>
+              <Form.Label className="text-white label fw-semibold fst-italic">Password</Form.Label>
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend3">
                   <RiLockPasswordFill />
                 </InputGroup.Text>
                 <Form.Control
-                  id="coloreRegister"
+                  className="coloreRegister"
                   type="password"
                   placeholder="Password"
                   aria-describedby="inputGroupPrepend3"
@@ -109,7 +87,9 @@ function Login() {
               id="coloreRegister"
               variant="outline-light"
               style={{ width: "auto" }}
-              onClick={postLogin}
+              onClick={() => {
+                dispatch(loginUser(input))
+              }}
               className="fw-bolder"
             >
               LOGIN

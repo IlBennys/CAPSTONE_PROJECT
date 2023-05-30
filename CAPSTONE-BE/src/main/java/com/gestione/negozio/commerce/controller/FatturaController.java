@@ -30,7 +30,7 @@ public class FatturaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findFatturaById(@PathVariable Long id) {
-	return new ResponseEntity<>(fatturaService.FindFatturaById(id), HttpStatus.FOUND);
+	return new ResponseEntity<>(fatturaService.FindFatturaById(id), HttpStatus.OK);
     }
 
     @PostMapping("/ordine/{idOrdine}")

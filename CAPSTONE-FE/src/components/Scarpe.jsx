@@ -2,9 +2,11 @@ import "../assets/sass/ScarpeCustom.scss"
 import { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
+import { useSelector } from "react-redux"
 function Scarpe() {
   const [scarpe, setscarpe] = useState([])
   const [carrello, setCarrello] = useState([])
+  const token = useSelector((state) => state.user.token)
 
   const postCarrello = (id, id2) => {
     const isPresente = carrello.some((item) => item.id === id2)
@@ -14,8 +16,7 @@ function Scarpe() {
       fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
         method: "POST",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJwYW9saW5vQGdtYWlsLmNvbSIsImlhdCI6MTY4NTE0MjQ5OSwiZXhwIjoxNjg1NzQ3Mjk5fQ.DYSajLBx4TnRBSwEqqY7RFtF9tIaWLQlMYZaKdC5mESwyEigyua_TlAHZL0wer7m",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       })
@@ -58,7 +59,7 @@ function Scarpe() {
   return (
     <>
       <div className="d-flex justify-content-between  flex-wrap mt-5">
-        {scarpe.map((e, i) => (
+        {scarpe.slice(0, 20).map((e, i) => (
           <Card style={{ width: "18rem" }} key={i} className="mt-4 BLUES">
             <Card.Img className="h-50 scarpeimg" variant="top" src={e.img} />
             <Card.Body>

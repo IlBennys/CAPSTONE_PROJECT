@@ -30,7 +30,7 @@ public class OrdineController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findOrdineById(@PathVariable Long id) {
-	return new ResponseEntity<>(ordineService.FindOrdineById(id), HttpStatus.FOUND);
+	return new ResponseEntity<>(ordineService.FindOrdineById(id), HttpStatus.OK);
     }
 
     @PostMapping("/user/{idUser}/carrello/{idCarrello}")

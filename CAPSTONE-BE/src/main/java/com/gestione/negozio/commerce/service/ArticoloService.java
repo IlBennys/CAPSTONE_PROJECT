@@ -118,6 +118,169 @@ public class ArticoloService {
     @Qualifier("FakeArticolo20")
     private ObjectProvider<Articolo> objArticolo20;
 
+    @Autowired
+
+    @Qualifier("FakeArticolo21")
+    private ObjectProvider<Articolo> objArticolo21;
+
+    @Autowired
+
+    @Qualifier("FakeArticolo22")
+    private ObjectProvider<Articolo> objArticolo22;
+
+    @Autowired
+
+    @Qualifier("FakeArticolo23")
+    private ObjectProvider<Articolo> objArticolo23;
+    @Autowired
+
+    @Qualifier("FakeArticolo24")
+    private ObjectProvider<Articolo> objArticolo24;
+    @Autowired
+
+    @Qualifier("FakeArticolo25")
+    private ObjectProvider<Articolo> objArticolo25;
+    @Autowired
+
+    @Qualifier("FakeArticolo26")
+    private ObjectProvider<Articolo> objArticolo26;
+    @Autowired
+
+    @Qualifier("FakeArticolo27")
+    private ObjectProvider<Articolo> objArticolo27;
+    @Autowired
+
+    @Qualifier("FakeArticolo28")
+    private ObjectProvider<Articolo> objArticolo28;
+    @Autowired
+
+    @Qualifier("FakeArticolo29")
+    private ObjectProvider<Articolo> objArticolo29;
+    @Autowired
+
+    @Qualifier("FakeArticolo30")
+    private ObjectProvider<Articolo> objArticolo30;
+    @Autowired
+
+    @Qualifier("FakeArticolo31")
+    private ObjectProvider<Articolo> objArticolo31;
+    @Autowired
+
+    @Qualifier("FakeArticolo32")
+    private ObjectProvider<Articolo> objArticolo32;
+    @Autowired
+
+    @Qualifier("FakeArticolo33")
+    private ObjectProvider<Articolo> objArticolo33;
+    @Autowired
+
+    @Qualifier("FakeArticolo34")
+    private ObjectProvider<Articolo> objArticolo34;
+    @Autowired
+
+    @Qualifier("FakeArticolo35")
+    private ObjectProvider<Articolo> objArticolo35;
+    @Autowired
+
+    @Qualifier("FakeArticolo36")
+    private ObjectProvider<Articolo> objArticolo36;
+    @Autowired
+
+    @Qualifier("FakeArticolo37")
+    private ObjectProvider<Articolo> objArticolo37;
+    @Autowired
+
+    @Qualifier("FakeArticolo38")
+    private ObjectProvider<Articolo> objArticolo38;
+    @Autowired
+
+    @Qualifier("FakeArticolo39")
+    private ObjectProvider<Articolo> objArticolo39;
+    @Autowired
+
+    @Qualifier("FakeArticolo40")
+    private ObjectProvider<Articolo> objArticolo40;
+    @Autowired
+
+    @Qualifier("FakeArticolo41")
+    private ObjectProvider<Articolo> objArticolo41;
+    @Autowired
+
+    @Qualifier("FakeArticolo42")
+    private ObjectProvider<Articolo> objArticolo42;
+    @Autowired
+
+    @Qualifier("FakeArticolo43")
+    private ObjectProvider<Articolo> objArticolo43;
+    @Autowired
+
+    @Qualifier("FakeArticolo44")
+    private ObjectProvider<Articolo> objArticolo44;
+    @Autowired
+
+    @Qualifier("FakeArticolo45")
+    private ObjectProvider<Articolo> objArticolo45;
+    @Autowired
+
+    @Qualifier("FakeArticolo46")
+    private ObjectProvider<Articolo> objArticolo46;
+    @Autowired
+
+    @Qualifier("FakeArticolo47")
+    private ObjectProvider<Articolo> objArticolo47;
+    @Autowired
+
+    @Qualifier("FakeArticolo48")
+    private ObjectProvider<Articolo> objArticolo48;
+    @Autowired
+
+    @Qualifier("FakeArticolo49")
+    private ObjectProvider<Articolo> objArticolo49;
+    @Autowired
+
+    @Qualifier("FakeArticolo50")
+    private ObjectProvider<Articolo> objArticolo50;
+    @Autowired
+
+    @Qualifier("FakeArticolo51")
+    private ObjectProvider<Articolo> objArticolo51;
+    @Autowired
+
+    @Qualifier("FakeArticolo52")
+    private ObjectProvider<Articolo> objArticolo52;
+    @Autowired
+
+    @Qualifier("FakeArticolo53")
+    private ObjectProvider<Articolo> objArticolo53;
+    @Autowired
+
+    @Qualifier("FakeArticolo54")
+    private ObjectProvider<Articolo> objArticolo54;
+    @Autowired
+
+    @Qualifier("FakeArticolo55")
+    private ObjectProvider<Articolo> objArticolo55;
+    @Autowired
+
+    @Qualifier("FakeArticolo56")
+    private ObjectProvider<Articolo> objArticolo56;
+    @Autowired
+
+    @Qualifier("FakeArticolo57")
+    private ObjectProvider<Articolo> objArticolo57;
+    @Autowired
+
+    @Qualifier("FakeArticolo58")
+    private ObjectProvider<Articolo> objArticolo58;
+    @Autowired
+
+    @Qualifier("FakeArticolo59")
+    private ObjectProvider<Articolo> objArticolo59;
+    @Autowired
+
+    @Qualifier("FakeArticolo60")
+    private ObjectProvider<Articolo> objArticolo60;
+
     public void createArticolo1() {
 	Articolo a = objArticolo1.getObject();
 	/*
@@ -311,6 +474,406 @@ public class ArticoloService {
 
     public void createArticolo20() {
 	Articolo a = objArticolo20.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo21() {
+	Articolo a = objArticolo21.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo22() {
+	Articolo a = objArticolo22.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo23() {
+	Articolo a = objArticolo23.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo24() {
+	Articolo a = objArticolo24.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo25() {
+	Articolo a = objArticolo25.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo26() {
+	Articolo a = objArticolo26.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo27() {
+	Articolo a = objArticolo27.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo28() {
+	Articolo a = objArticolo28.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo29() {
+	Articolo a = objArticolo29.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo30() {
+	Articolo a = objArticolo30.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo31() {
+	Articolo a = objArticolo31.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo32() {
+	Articolo a = objArticolo32.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo33() {
+	Articolo a = objArticolo33.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo34() {
+	Articolo a = objArticolo34.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo35() {
+	Articolo a = objArticolo35.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo36() {
+	Articolo a = objArticolo36.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo37() {
+	Articolo a = objArticolo37.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo38() {
+	Articolo a = objArticolo38.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo39() {
+	Articolo a = objArticolo39.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo40() {
+	Articolo a = objArticolo40.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo41() {
+	Articolo a = objArticolo41.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo42() {
+	Articolo a = objArticolo42.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo43() {
+	Articolo a = objArticolo43.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo44() {
+	Articolo a = objArticolo44.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo45() {
+	Articolo a = objArticolo45.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo46() {
+	Articolo a = objArticolo46.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo47() {
+	Articolo a = objArticolo47.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo48() {
+	Articolo a = objArticolo48.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo49() {
+	Articolo a = objArticolo49.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo50() {
+	Articolo a = objArticolo50.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo51() {
+	Articolo a = objArticolo51.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo52() {
+	Articolo a = objArticolo52.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo53() {
+	Articolo a = objArticolo53.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo54() {
+	Articolo a = objArticolo54.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo55() {
+	Articolo a = objArticolo55.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo56() {
+	Articolo a = objArticolo56.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo57() {
+	Articolo a = objArticolo57.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo58() {
+	Articolo a = objArticolo58.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo59() {
+	Articolo a = objArticolo59.getObject();
+	/*
+	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
+	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
+	 * listaOrdini.get(random); a.setOrdine(o);
+	 */
+	articoloDao.save(a);
+    }
+
+    public void createArticolo60() {
+	Articolo a = objArticolo60.getObject();
 	/*
 	 * List<Ordine> listaOrdini = ordineService.findAll(); Integer random =
 	 * fake.number().numberBetween(0, listaOrdini.size() - 1); Ordine o =
