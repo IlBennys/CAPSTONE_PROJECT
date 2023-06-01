@@ -42,6 +42,7 @@ function Scarpe() {
 
   useEffect(() => {
     dispatch(getArticoli(token))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

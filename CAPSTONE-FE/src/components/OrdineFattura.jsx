@@ -1,4 +1,5 @@
 import "../assets/sass/OrdineFatturaCustom.scss"
+
 import { Button, Card, Container } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { creaFattura, getFattura, getOrdine, trovaIdOrdine } from "../redux/actions"
@@ -7,8 +8,8 @@ import { useEffect, useState } from "react"
 
 const OrdineFattura = () => {
   const token = useSelector((state) => state.user.token)
+  const articoli = useSelector((state) => state.user.articoli)
   const ordine = useSelector((state) => state.user.ordine)
-  // const fattura = useSelector((state) => state.user.fattura)
   const user = useSelector((state) => state.user.user)
   const carrello = useSelector((state) => state.user.carrello)
   const idOrdine = useSelector((state) => state.user.idOrdine)
@@ -16,20 +17,47 @@ const OrdineFattura = () => {
   const dispatch = useDispatch()
 
   const creaPDF = () => {
-    let doc = new jsPDF()
-    doc.text(10, 20, `IL TUO ORDINE: ${ordine.numeroOrdine}`)
-    doc.text(10, 30, `IN STATO: ${ordine.statoOrdine}`)
-    doc.text(10, 40, `EFFETTUATO DA: ${ordine.azienda.nomeAzienda}`)
-    doc.text(10, 50, `RIEPILOGO: ${ordine.riepilogoOrdine}`.toLocaleUpperCase())
-    doc.text(10, 60, `IN DATA: ${ordine.dataConsegna}`)
     let prezzoTotale = 0
     if (carrello.articoli.length > 0) {
       prezzoTotale = carrello.articoli.reduce((acc, articolo) => {
         return acc + articolo.prezzo
       }, 0)
     }
+
     prezzoTotale += ordine.prezzoConsegna
-    doc.text(10, 70, `PREZZO TOTALE FATTURA: ${prezzoTotale}€`)
+
+    let doc = new jsPDF()
+
+    const schiarimentoPercentuale = 0.8
+    const red = Math.round(128 + (255 - 128) * schiarimentoPercentuale)
+    const green = 0
+    const blue = 0
+
+    doc.setTextColor(red, green, blue)
+    doc.setFont("Times", "bold")
+    doc.setFontSize(30)
+    doc.text(60, 20, `${ordine.azienda.nomeAzienda}`)
+    doc.setTextColor(0, 0, 128)
+    doc.setFont("Times", "normal")
+    doc.setFontSize(12)
+    doc.text(10, 30, `DATI ORDINE:`)
+    doc.setTextColor(0, 0, 0)
+    doc.text(10, 45, `IL TUO ORDINE: ${ordine.numeroOrdine}`)
+    doc.text(10, 55, `IN STATO: ${ordine.statoOrdine}`)
+    doc.text(10, 65, `RIEPILOGO: ${ordine.riepilogoOrdine}`.toLocaleUpperCase())
+    doc.text(10, 75, `CONSEGNA PREVISTA: ${ordine.dataConsegna}`)
+    doc.setTextColor(0, 0, 128)
+    doc.text(10, 90, `DATI AZIENDA:`)
+    doc.setTextColor(0, 0, 0)
+    doc.text(10, 105, `${ordine.azienda.nomeAzienda}`)
+    doc.text(10, 115, `P.IVA: ${ordine.azienda.partitaIva}`)
+    doc.text(10, 125, `CODICE FISCALE: ${ordine.azienda.codiceFiscale}`)
+    doc.text(10, 135, `PEC: ${ordine.azienda.pec}`)
+    doc.text(10, 145, `CON SEDE LEGALE: ${ordine.azienda.citta}`)
+    doc.setTextColor(255, 0, 0)
+    doc.setFontSize(18)
+    doc.setFont("Times", "bold")
+    doc.text(50, 160, `PREZZO TOTALE FATTURA: ${prezzoTotale}€`)
 
     doc.save("Fattura Energy Shoes")
   }
