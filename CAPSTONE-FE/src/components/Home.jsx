@@ -1,4 +1,5 @@
 import logo from "../assets/justdoit.png"
+import palla from "../assets/palla.png"
 import { AiOutlineCaretRight } from "react-icons/ai"
 import scritta from "../assets/SCRITTANIKE.png"
 import "../assets/sass/HomeCustom.scss"
@@ -29,6 +30,9 @@ const Home = () => {
             </div>
           </Col>
         </Row>
+        <div className="divPalla">
+          <img src={palla} alt="ball-pic" />
+        </div>
         <Row className="my-3">
           <ArticoliCinque />
         </Row>

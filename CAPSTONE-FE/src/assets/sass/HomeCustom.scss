@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 $arancio: #ff3800;
+$bluScuro: #183061;
 
 .totalissimo {
   background-image: url("../nike_hompage.png");
@@ -25,7 +26,7 @@ $arancio: #ff3800;
 .divscritta {
   position: fixed;
   top: 8%;
-  right: 2%;
+  right: 15%;
   .pi {
     position: fixed;
     right: 8%;
@@ -42,7 +43,33 @@ $arancio: #ff3800;
     transform: scale(1.2);
   }
 }
-//-------------------------------------------------------------------------------------
+
+.divPalla {
+  height: 192px;
+  position: fixed;
+  width: 429px;
+  top: 41%;
+  right: 0%;
+  transform: rotate(236deg);
+}
+
+.dropdown-menu.show {
+  background-color: $bluScuro;
+}
+
+.items:hover {
+  background-color: #ff3800;
+  color: #ff3800;
+}
+
+.bottoneItems {
+  background-color: #183061;
+}
+.bottoneItems:hover {
+  background-color: #ff3800;
+}
+
+//----------------------------------------Card Scarpe--------------------------------------------
 
 .a12 {
   font-family: "Lobster", cursive;

@@ -1,9 +1,14 @@
 export const ADD_TOKEN = "ADD_TOKEN"
 export const ADD_ORDINE = "ADD_ORDINE"
-export const ADD_FATTURA = "ADD_FATTURA"
+export const FATTURA = "FATTURA"
 export const CARRELLO_ARTICOLI = "CARRELLO_ARTICOLI"
 export const ARTICOLI = "ARTICOLI"
 export const USERNAME_USER = "USERNAME_USER"
+export const ADD_ID_CARRELLO = "ADD_ID_CARRELLO"
+export const ADD_ID_ORDINE = "ADD_ID_ORDINE"
+export const ADD_ID_FATTURA = "ADD_ID_FATTURA"
+export const USER = "USER"
+export const FATTURA_CREATED = "FATTURA_CREATED"
 
 export function regisrazioneUser(input) {
   return async () => {
@@ -20,6 +25,107 @@ export function regisrazioneUser(input) {
         window.location.href = "http://localhost:3000/login"
       } else if (response.status === 400) {
         alert("Email o Username già eistente")
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+export function trovaIdOrdine(token, idUser, idCarrello, carrelloArticoli) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/ordine`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        const ordineFiltrato = data.filter(
+          (e) =>
+            e.user.id === idUser &&
+            e.carrello.id === idCarrello &&
+            e.carrello.articoli.length === carrelloArticoli.length
+        )
+
+        console.log(ordineFiltrato, "ordineFiltrato")
+        dispatch({
+          type: ADD_ID_ORDINE,
+          payload: ordineFiltrato[0].id,
+        })
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+export function trovaIdCarrello(idUser, token) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/carrello`, {
+        method: "GET",
+        headers: {
+          Authorization: ` Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        const carrelloFiltrato = data.filter((e) => e.id === idUser)
+        console.log(carrelloFiltrato[0].id, "oooooooooooooooooo")
+        dispatch({
+          type: ADD_ID_CARRELLO,
+          payload: carrelloFiltrato[0].id,
+        })
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+export function getUser(token, username) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/user`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        console.log(data, "data")
+        const userFiltrato = data.filter((e) => e.username === username)
+        dispatch({
+          type: USER,
+          payload: userFiltrato[0],
+        })
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+export function trovaIdFattura(token, idOrdine) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/fattura`, {
+        method: "GET",
+        headers: {
+          Authorization: ` Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        const fatturaFiltrata = data.filter((e) => e.id === idOrdine)
+        dispatch({
+          type: ADD_ID_FATTURA,
+          payload: fatturaFiltrata[0].id,
+        })
       }
     } catch (error) {
       alert("testComment", error)
@@ -86,7 +192,7 @@ export function getArticoli(token) {
       console.log(response)
       if (response.ok) {
         const data = await response.json()
-        //console.log(data)
+
         dispatch({
           type: ARTICOLI,
           payload: data,
@@ -109,12 +215,32 @@ export function getCarrello(idCarrello, token) {
         },
       })
       if (response.ok) {
-        const { articoli } = await response.json()
-        //console.log(articoli)
+        const data = await response.json()
+        console.log(data, "getCarrello")
         dispatch({
           type: CARRELLO_ARTICOLI,
-          payload: articoli,
+          payload: data,
         })
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+export function deleteCarrello(idCarrello, idArticolo, token) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/carrello/${idCarrello}/articoli/${idArticolo}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      console.log(response)
+      if (response.ok) {
+        alert("Articolo eliminato con successo.")
+        dispatch(getCarrello(idCarrello, token))
       }
     } catch (error) {
       alert("testComment", error)
@@ -132,7 +258,7 @@ export function creaOrdine(idUser, idCarrello, token) {
         },
       })
       if (response.ok) {
-        console.log(response)
+        console.log(response, "creaOrdine")
         window.location.href = "/ordine"
       }
     } catch (error) {
@@ -140,6 +266,11 @@ export function creaOrdine(idUser, idCarrello, token) {
     }
   }
 }
+export const updateCartItemCount = (count) => ({
+  type: "UPDATE_CART_ITEM_COUNT",
+  payload: count,
+})
+
 export function aggiungiArticoliCarrello(idCarrello, idArticolo, token) {
   return async () => {
     try {
@@ -183,7 +314,7 @@ export function getOrdine(id, token) {
   }
 }
 export function creaFattura(idOrdine, token) {
-  return async () => {
+  return async (dispatch) => {
     try {
       const response = await fetch(`http://localhost:8080/api/fattura/ordine/${idOrdine}`, {
         method: "POST",
@@ -194,6 +325,7 @@ export function creaFattura(idOrdine, token) {
       })
       if (response.ok) {
         console.log(response)
+        dispatch({ type: FATTURA_CREATED })
       }
     } catch (error) {
       alert("testComment", error)
@@ -213,7 +345,7 @@ export function getFattura(idOrdine, token) {
       if (response.ok) {
         const data = await response.json()
         console.log(data, "datiamo")
-        dispatch({ type: ADD_FATTURA, payload: data })
+        dispatch({ type: FATTURA, payload: data })
       }
     } catch (error) {
       alert("testComment", error)
