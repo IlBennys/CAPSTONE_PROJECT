@@ -36,7 +36,7 @@ const ArticoliCinque = () => {
               >
                 <Card.Img className="h-100 imgscarpee" variant="top" src={e.img} />
                 <Card.Text className=" d-flex flex-row align-items-center text-white">
-                  <a className="a12" href="http://localhost:3000/scarpe">
+                  <a className="a12 ms-2" href="http://localhost:3000/scarpe">
                     Prezzo: {e.prezzo}€ <br /> Prendilo!
                   </a>
                 </Card.Text>

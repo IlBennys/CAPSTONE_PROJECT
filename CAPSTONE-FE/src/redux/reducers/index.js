@@ -10,6 +10,7 @@ import {
   FATTURA_CREATED,
   USER,
   USERNAME_USER,
+  ORDINI,
 } from "../actions"
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   carrello: {},
   ordine: {},
   fattura: {},
+  ordini: [],
 }
 
 const userReducer = (state = initialState, action) => {
@@ -41,6 +43,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         idCarrello: action.payload,
+      }
+    case ORDINI:
+      return {
+        ...state,
+        ordini: action.payload,
       }
     case ADD_ID_ORDINE:
       return {

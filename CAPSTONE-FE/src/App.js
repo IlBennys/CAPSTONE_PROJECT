@@ -1,6 +1,4 @@
-//import logo from "./logo.svg"
 import "bootstrap/dist/css/bootstrap.min.css"
-import "./assets/sass/App.scss"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Col, Container, Row } from "react-bootstrap"
 import Home from "./components/Home"
@@ -12,7 +10,9 @@ import Felpe from "./components/Felpe"
 import Cappelli from "./components/Cappelli"
 import Carrello from "./components/Carrello"
 import OrdineFattura from "./components/OrdineFattura"
-
+import Profilo from "./components/Profilo"
+import "./assets/sass/App.scss"
+import Ordini from "./components/Ordini"
 function App() {
   return (
     <>
@@ -24,9 +24,11 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/ordini" element={<Ordini />} />
                 <Route path="/scarpe" element={<Scarpe />} />
                 <Route path="/felpe" element={<Felpe />} />
                 <Route path="/cappelli" element={<Cappelli />} />
+                <Route path="/profilo" element={<Profilo />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/ordine" element={<OrdineFattura />} />
                 <Route path="/carrello" element={<Carrello />} />

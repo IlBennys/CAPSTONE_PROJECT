@@ -8,7 +8,6 @@ import { useEffect, useState } from "react"
 
 const OrdineFattura = () => {
   const token = useSelector((state) => state.user.token)
-  const articoli = useSelector((state) => state.user.articoli)
   const ordine = useSelector((state) => state.user.ordine)
   const user = useSelector((state) => state.user.user)
   const carrello = useSelector((state) => state.user.carrello)
@@ -17,17 +16,20 @@ const OrdineFattura = () => {
   const dispatch = useDispatch()
 
   const creaPDF = () => {
+    let doc = new jsPDF()
+
+    // CALCOLA IL PREZZO TOTALE DELLA FATTURA
     let prezzoTotale = 0
     if (carrello.articoli.length > 0) {
       prezzoTotale = carrello.articoli.reduce((acc, articolo) => {
         return acc + articolo.prezzo
       }, 0)
     }
-
     prezzoTotale += ordine.prezzoConsegna
+    const iva = prezzoTotale * 0.22
+    prezzoTotale += iva
 
-    let doc = new jsPDF()
-
+    // CALCOLA IL COLORE DEL TESTO
     const schiarimentoPercentuale = 0.8
     const red = Math.round(128 + (255 - 128) * schiarimentoPercentuale)
     const green = 0
@@ -45,7 +47,6 @@ const OrdineFattura = () => {
     doc.text(10, 45, `IL TUO ORDINE: ${ordine.numeroOrdine}`)
     doc.text(10, 55, `IN STATO: ${ordine.statoOrdine}`)
     doc.text(10, 65, `RIEPILOGO: ${ordine.riepilogoOrdine}`.toLocaleUpperCase())
-    doc.text(10, 75, `CONSEGNA PREVISTA: ${ordine.dataConsegna}`)
     doc.setTextColor(0, 0, 128)
     doc.text(10, 90, `DATI AZIENDA:`)
     doc.setTextColor(0, 0, 0)
@@ -57,7 +58,7 @@ const OrdineFattura = () => {
     doc.setTextColor(255, 0, 0)
     doc.setFontSize(18)
     doc.setFont("Times", "bold")
-    doc.text(50, 160, `PREZZO TOTALE FATTURA: ${prezzoTotale}€`)
+    doc.text(20, 160, `PREZZO TOTALE FATTURA (IVA INCLUSA):   ${prezzoTotale.toFixed(2)}€`)
 
     doc.save("Fattura Energy Shoes")
   }

@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap");
+.copertina {
+  position: relative;
+  background-image: url("../copertinaFoto.jpg");
+  background-size: fill;
+  height: 40vh;
+  border: 2px solid black;
+}
+.container {
+  font-family: "Darumadrop One", cursive;
+}
+
+.imgprofilo {
+  position: absolute;
+  top: 64%;
+  left: 3%;
+  border: 1px solid black;
+  width: 169px;
+  height: 165px;
+  background-image: url("../userfoto.png");
+  background-size: cover;
+  background-color: white;
+}
+
+.sottocategoria {
+  background: rgb(255, 69, 0);
+  background: -moz-linear-gradient(
+    133deg,
+    rgba(255, 69, 0, 0) 18%,
+    rgba(255, 69, 0, 0.8460845519848564) 40%,
+    rgba(255, 69, 0, 1) 54%,
+    rgba(255, 69, 0, 0) 79%
+  );
+  background: -webkit-linear-gradient(
+    133deg,
+    rgba(255, 69, 0, 0) 18%,
+    rgba(255, 69, 0, 0.8460845519848564) 40%,
+    rgba(255, 69, 0, 1) 54%,
+    rgba(255, 69, 0, 0) 79%
+  );
+  background: linear-gradient(
+    133deg,
+    rgba(255, 69, 0, 0) 18%,
+    rgba(255, 69, 0, 0.8460845519848564) 40%,
+    rgba(255, 69, 0, 1) 54%,
+    rgba(255, 69, 0, 0) 79%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff4500",endColorstr="#ff4500",GradientType=1);
+  height: 45vh;
+}

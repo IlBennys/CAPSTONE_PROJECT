@@ -9,6 +9,7 @@ export const ADD_ID_ORDINE = "ADD_ID_ORDINE"
 export const ADD_ID_FATTURA = "ADD_ID_FATTURA"
 export const USER = "USER"
 export const FATTURA_CREATED = "FATTURA_CREATED"
+export const ORDINI = "ORDINI"
 
 export function regisrazioneUser(input) {
   return async () => {
@@ -103,6 +104,7 @@ export function getUser(token, username) {
           type: USER,
           payload: userFiltrato[0],
         })
+        dispatch(trovaIdCarrello(userFiltrato[0].id, token))
       }
     } catch (error) {
       alert("testComment", error)
@@ -313,6 +315,7 @@ export function getOrdine(id, token) {
     }
   }
 }
+
 export function creaFattura(idOrdine, token) {
   return async (dispatch) => {
     try {
@@ -332,6 +335,32 @@ export function creaFattura(idOrdine, token) {
     }
   }
 }
+
+export function getOrdini(token, idUser, idCarrello) {
+  return async (dispatch) => {
+    try {
+      const response = await fetch("http://localhost:8080/api/ordine", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        const ordiniFiltrati = data.filter((e) => e.user.id === idUser && e.carrello.id === idCarrello)
+        console.log(ordiniFiltrati, "getOrdini")
+        dispatch({
+          type: ORDINI,
+          payload: ordiniFiltrati,
+        })
+      }
+    } catch (error) {
+      alert("testComment", error)
+    }
+  }
+}
+
 export function getFattura(idOrdine, token) {
   return async (dispatch) => {
     try {

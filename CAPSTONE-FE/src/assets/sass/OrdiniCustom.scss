@@ -1,0 +1,18 @@
+$arancio: #ff3800;
+$bluScuro: #183061;
+
+h1 {
+  text-align: center;
+  color: $arancio;
+}
+
+tr,
+th,
+td {
+  width: 135px;
+}
+
+th {
+  color: $arancio;
+  line-height: 60%;
+}

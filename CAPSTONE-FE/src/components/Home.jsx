@@ -1,8 +1,8 @@
+import "../assets/sass/HomeCustom.scss"
 import logo from "../assets/justdoit.png"
 import palla from "../assets/palla.png"
 import { AiOutlineCaretRight } from "react-icons/ai"
 import scritta from "../assets/SCRITTANIKE.png"
-import "../assets/sass/HomeCustom.scss"
 import { Col, Row } from "react-bootstrap"
 import ArticoliCinque from "./ArticoliCinque"
 const Home = () => {

@@ -2,12 +2,12 @@ import "../assets/sass/NavCustom.scss"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
-import { FiSearch } from "react-icons/fi"
-import { BsHeart } from "react-icons/bs"
 import { MdOutlineShoppingCart } from "react-icons/md"
+import { FaUserCircle } from "react-icons/fa"
+import { RiShoppingBag2Fill } from "react-icons/ri"
 import logo from "../assets/LOGOnIKEE.png"
 import scritta from "../assets/NIKE SCRITTA.png"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Badge, Button, NavDropdown } from "react-bootstrap"
 import { getCarrello, getUser, logoutUser } from "../redux/actions"
@@ -17,11 +17,11 @@ const NavCustom = () => {
   const dispatch = useDispatch()
   const carrello = useSelector((state) => state.user.carrello)
   const username = useSelector((state) => state.user.username)
-  const [u, setU] = useState([])
 
   useEffect(() => {
     dispatch(getCarrello(1, token))
     dispatch(getUser(token, username))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -59,13 +59,17 @@ const NavCustom = () => {
                   <NavDropdown title={`Ciao ${username}`} className="caratteraGrande" id="basic-nav-dropdown">
                     <NavDropdown.Item className="caratteraGrande text-white items" href="/profilo">
                       Il mio profilo
+                      <span className="ms-2">
+                        <FaUserCircle />
+                      </span>
                     </NavDropdown.Item>
                     <NavDropdown.Item className="caratteraGrande text-white items" href="/ordini">
                       I miei ordini
+                      <span className="ms-2">
+                        <RiShoppingBag2Fill />
+                      </span>
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="caratteraGrande text-white items" href="/preferiti">
-                      Preferiti
-                    </NavDropdown.Item>
+
                     <NavDropdown.Divider />
                     <Button
                       className="w-100 bottoneItems text-white btn btn-outline-danger p-2"
