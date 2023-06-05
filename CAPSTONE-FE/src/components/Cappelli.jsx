@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { useDispatch, useSelector } from "react-redux"
-import { getArticoli } from "../redux/actions"
+import { getArticoli, getCarrello } from "../redux/actions"
 function Cappelli() {
   const [carrello, setCarrello] = useState([])
   const token = useSelector((state) => state.user.token)
@@ -29,6 +29,7 @@ function Cappelli() {
             const articolo = cappelli.find((e) => e.id === id2)
             setCarrello((prevCarrello) => [...prevCarrello, articolo])
             alert("Articolo aggiunto al carrello.")
+            dispatch(getCarrello(1, token))
           } else if (response.status === 409) {
             alert("Articolo già aggiunto al carrello.")
           }

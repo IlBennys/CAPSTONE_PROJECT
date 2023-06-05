@@ -208,7 +208,7 @@ public class CommerceConfiguration {
     @Bean("FakeArticolo21")
     @Scope("prototype")
     public Articolo Articolo21() {
-	return Articolo.builder().nomeArticoli("GIACCA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("GIACCA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113129741487181834/kisspng-hoodie-nike-jacket-t-shirt-clothing-5b9a4b0ec25408.992834561536838414796-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -218,7 +218,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo22() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("GRIGIO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113139376336150678/ODA0MzQ2LTA2Mw___1_1620916589-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -228,7 +228,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo23() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("BIANCO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113139940532944986/download-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -238,7 +238,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo24() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("GRIGIO E NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113154614108377270/png-clipart-nike-air-full-zip-hoodie-boys-nike-air-full-zip-hoodie-boys-air-jordan-clothing-nike-adidas-hoodie-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -248,7 +248,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo25() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("GRIGIO E NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113154998101086278/felpa-zip-e-cappuccio-nike-sportswear-tech-fleece-multicolor-uomo-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -258,7 +258,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo26() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("ROSSO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113155278909755462/BV4124-677-PHSFH001-1000-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -268,7 +268,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo27() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113155775901220944/nike-felpa-m-nsw-hoodie-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -278,7 +278,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo28() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("NERO").brand("NIKE X BLM")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113156063416549497/NKDK-00A-PTB-0LJ_FF1-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -288,7 +288,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo29() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("VERDE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113156761348747264/felpa-nike-club-fleece-olive-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -298,7 +298,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo30() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("ROSSO E NERO").brand("NIKE X JORDAN")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113156950914502726/png-clipart-hoodie-air-jordan-jacket-nike-hoodie-hoodie-black-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -308,7 +308,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo31() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("BIANCO E GRIGIO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113157238710870107/felpa-zip-e-cappuccio-nike-sportswear-tech-fleece-bianco-beige-uomo-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -318,7 +318,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo32() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("VERDEACQUA").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113157611446079498/felpa-leggera-girocollo-uomo-sportswear-trend-fleece-crew-malachite-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -328,7 +328,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo33() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("BLU NOTTE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113158017224020030/png-clipart-hoodie-nike-air-force-jacket-polar-fleece-nike-hoodies-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -338,7 +338,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo34() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("GRIGIO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113158306354184232/felpa-girocollo-grigio-chiaro-nike-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -348,8 +348,9 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo35() {
-	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA").prezzo((double) fake.number().numberBetween(50, 200))
-		.descrizioneArticolo("BLU E ARANCIONE").brand("NIKE")
+	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA")
+		.prezzo((double) fake.number().numberBetween(100, 300)).descrizioneArticolo("BLU E ARANCIONE")
+		.brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113158981368684554/felpa-nike-club-fleece-olive-removebg-preview_1.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
     }
@@ -358,8 +359,8 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo36() {
-	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA").prezzo((double) fake.number().numberBetween(50, 200))
-		.descrizioneArticolo("ROSA").brand("NIKE")
+	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA")
+		.prezzo((double) fake.number().numberBetween(100, 300)).descrizioneArticolo("ROSA").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113159312215396423/P23---nike---DX5071623-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
     }
@@ -368,8 +369,9 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo37() {
-	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA").prezzo((double) fake.number().numberBetween(50, 200))
-		.descrizioneArticolo("VERDE PISTACCHIO").brand("NIKE")
+	return Articolo.builder().nomeArticoli("COMPLETO DI TUTA")
+		.prezzo((double) fake.number().numberBetween(100, 300)).descrizioneArticolo("VERDE PISTACCHIO")
+		.brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113160637133115402/felpa-pullover-con-cappuccio-sportswear-club-fleece-tz1kGP-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
     }
@@ -378,7 +380,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo38() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("ARANCIONE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113161084652769322/s-l500-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -388,7 +390,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo39() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("GIALLO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113161856895430656/s-l1600-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -398,7 +400,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo40() {
-	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("FELPA").prezzo((double) fake.number().numberBetween(100, 300))
 		.descrizioneArticolo("NERO E GIALLO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113162258042867853/Nike-Felpa-c-cappuccio-Nike-Air-Donna-Art-CU5442-011-Nero-Giallo-Fluo--removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -410,7 +412,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo41() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113162535336681503/cappello-da-golf-dri-fit-legacy91-HV7sVp-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -420,7 +422,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo42() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163036430184498/cappello-sportswear-6Tp3RW-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -430,7 +432,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo43() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163214402883604/cappello-regolabile-pro-hH1h36-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -440,7 +442,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo44() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("BIANCO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163451288784926/png-clipart-air-force-1-baseball-cap-nike-hat-baseball-cap-white-hat-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -450,7 +452,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo45() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("BLU").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163590376099951/cappello-sportswear-heritage-86-bcTRld-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -460,7 +462,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo46() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163848258687028/cappello-regolabile-heritage86-QpVFhK-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -470,7 +472,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo47() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("GRIGIO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113163989715791872/cappello-regolabile-sportswear-heritage86-GhHJFR-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -480,7 +482,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo48() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("BLU E ARANCIONE").brand("NIKE X PARIS")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113164501735440434/nike-cappello-paris-saint-germain-adulto-unisex-916574-410-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -490,7 +492,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo49() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("ARANCIONE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113164981777735790/images-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -500,7 +502,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo50() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("MILITARE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113165173029621881/P22---nike---DC3996222-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -510,7 +512,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo51() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("ROSA").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113165444921180280/nike-cappello-sportswear-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -520,7 +522,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo52() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("ROSSO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113165613620281454/2ec48ae2-8644-414c-89a2-a397dffdb388__L-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -530,7 +532,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo53() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("NERO").brand("NIKE X SB")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113165821791961148/s-l1600-removebg-preview_1.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -540,7 +542,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo54() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("MARRONE").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113166067511083078/51oGn2hF4AL._AC_SR175_263_QL70_-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -550,7 +552,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo55() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("BLU").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113166289809190962/cappello-snapback-air-true-eos-royal-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -560,7 +562,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo56() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("ROSSO").brand("NIKE X JORDAN")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113166602670714900/cappello-jordan-jumpman-classic99-metal-lVhFGK-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -570,7 +572,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo57() {
-	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO").prezzo((double) fake.number().numberBetween(30, 80))
 		.descrizioneArticolo("BIANCO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113166803603038258/nike-cappello-court-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -580,7 +582,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo58() {
-	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(70, 120))
 		.descrizioneArticolo("NERO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113167031676706966/kisspng-beanie-nike-skateboarding-knit-cap-hat-nike-sb-surplus-beanie-photo-blueobsidian-5b6d9973ba7006.5935342015339093637637-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -590,7 +592,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo59() {
-	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(70, 120))
 		.descrizioneArticolo("GRIGIO").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113167191827812502/kisspng-knit-cap-nike-skateboarding-hat-5b1002b77665b7.118007341527775927485-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();
@@ -600,7 +602,7 @@ public class CommerceConfiguration {
 
     @Scope("prototype")
     public Articolo Articolo60() {
-	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(50, 200))
+	return Articolo.builder().nomeArticoli("CAPPELLO DA NEVE").prezzo((double) fake.number().numberBetween(70, 120))
 		.descrizioneArticolo("ROSA").brand("NIKE")
 		.img("https://cdn.discordapp.com/attachments/1054326724164337695/1113167480244928623/berretto-sportswear-utility-SmHBDm-removebg-preview.png")
 		.quantita(fake.number().numberBetween(5, 100)).build();

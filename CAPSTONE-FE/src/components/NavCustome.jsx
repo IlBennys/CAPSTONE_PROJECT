@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { FaUserCircle } from "react-icons/fa"
+import { BsHousesFill } from "react-icons/bs"
 import { RiShoppingBag2Fill } from "react-icons/ri"
 import logo from "../assets/LOGOnIKEE.png"
 import scritta from "../assets/NIKE SCRITTA.png"
@@ -58,15 +59,27 @@ const NavCustom = () => {
                 <>
                   <NavDropdown title={`Ciao ${username}`} className="caratteraGrande" id="basic-nav-dropdown">
                     <NavDropdown.Item className="caratteraGrande text-white items" href="/profilo">
-                      Il mio profilo
+                      <span>Il mio profilo</span>
                       <span className="ms-2">
                         <FaUserCircle />
                       </span>
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="caratteraGrande text-white items" href="/ordini">
+                    <NavDropdown.Item
+                      className="caratteraGrande text-white items d-flex flex-row justify-content-between"
+                      href="/ordini"
+                    >
                       I miei ordini
                       <span className="ms-2">
                         <RiShoppingBag2Fill />
+                      </span>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      className="caratteraGrande text-white items d-flex flex-row justify-content-between"
+                      href="/azienda"
+                    >
+                      About Us
+                      <span className="ms-2">
+                        <BsHousesFill />
                       </span>
                     </NavDropdown.Item>
 

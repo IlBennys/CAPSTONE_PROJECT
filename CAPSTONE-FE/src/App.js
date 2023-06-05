@@ -13,6 +13,7 @@ import OrdineFattura from "./components/OrdineFattura"
 import Profilo from "./components/Profilo"
 import "./assets/sass/App.scss"
 import Ordini from "./components/Ordini"
+import Azienda from "./components/Azienda"
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/azienda" element={<Azienda />} />
                 <Route path="/ordini" element={<Ordini />} />
                 <Route path="/scarpe" element={<Scarpe />} />
                 <Route path="/felpe" element={<Felpe />} />

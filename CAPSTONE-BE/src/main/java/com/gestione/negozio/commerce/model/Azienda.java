@@ -29,7 +29,7 @@ public class Azienda {
     private Long partitaIva = 06524670632l;
     private Long codiceFiscale = 06524670632l;
     private String pec = "energy.shoes@legalmail.it";
-    private String citta = "Palermo";
+    private String citta = "Palermo, Zona Industriale N.71";
 
     @OneToMany
     private List<Corriere> lista_corrieri;

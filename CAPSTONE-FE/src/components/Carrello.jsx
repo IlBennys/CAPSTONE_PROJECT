@@ -16,6 +16,7 @@ function Carrello() {
 
   const handleDeleteItem = (itemId) => {
     dispatch(deleteCarrello(user.id, itemId, token))
+    dispatch(getCarrello(1, token))
   }
 
   useEffect(() => {

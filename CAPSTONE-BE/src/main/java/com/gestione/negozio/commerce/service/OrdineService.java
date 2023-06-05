@@ -42,6 +42,7 @@ public class OrdineService {
 	o.setUser(u);
 	o.setCarrello(c);
 	ordineDao.save(o);
+
     }
 
     public String postOrdine(Long idUser, Long idCarrello) {

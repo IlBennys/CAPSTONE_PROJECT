@@ -173,11 +173,11 @@ export function logoutUser() {
     dispatch({
       type: ADD_TOKEN,
       payload: "",
-    }) &&
-      dispatch({
-        type: ARTICOLI,
-        payload: [],
-      })
+    })
+    dispatch({
+      type: ARTICOLI,
+      payload: [],
+    })
   }
 }
 

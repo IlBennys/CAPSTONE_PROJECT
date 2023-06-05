@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Lobster&family=Roboto+Slab:wght@500&display=swap");
+$arancio: #ff3800;
+$biancoSporco: rgb(223, 220, 220);
+
+.contaz {
+  font-family: "Roboto Slab", serif;
+  font-weight: 600;
+}
+
+.atlimg {
+  width: 550px;
+  height: 350px;
+  object-fit: cover;
+  float: left;
+}
+.atlimg2 {
+  width: 550px;
+  height: 350px;
+  object-fit: cover;
+  float: right;
+}
+
+.atlpar {
+  line-height: 220%;
+  color: $biancoSporco;
+}
+
+.imgcar {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 2%;
+}
+
+.carousel-indicators {
+  display: none;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 14%;
+  bottom: 1.25rem;
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: center;
+}
+.carousel-control-next {
+  left: 95%;
+  display: none;
+}
+.carousel-control-prev {
+  left: -105px;
+  display: none;
+}
+
+.carousel-item {
+  transition: transform 0.4s ease-out;
+}
+.aboutus {
+  background-color: black;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: $arancio;
+}
+h2 {
+  color: $biancoSporco;
+}
+
+.percentdiv {
+  background-color: $biancoSporco;
+  padding: 15px;
+  height: 240px;
+  .percpar {
+    font-size: 80px;
+  }
+}
+
+.footerCust {
+  background-color: black;
+  color: $biancoSporco;
+  //height: 150px;
+  position: relative;
+  bottom: 0px;
+  left: -149px;
+  width: 212vh;
+  font-family: "Roboto Slab", serif;
+}
+body {
+  overflow-x: hidden; /* Hide scrollbars */
+}
