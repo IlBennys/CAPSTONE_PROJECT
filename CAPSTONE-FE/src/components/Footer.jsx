@@ -1,6 +1,6 @@
 import { Col, Row } from "react-bootstrap"
 import "../assets/sass/AzinedaCustom.scss"
-import { BsTwitter, BsLinkedin, BsInstagram, BsYoutube } from "react-icons/bs"
+import { BsTwitter, BsLinkedin, BsInstagram, BsYoutube, BsGithub } from "react-icons/bs"
 
 const Footer = () => {
   return (
@@ -36,14 +36,19 @@ const Footer = () => {
             </a>
           </Col>
           <Col className=" my-3 d-flex justify-content-end" md={5} sm={12}>
-            <span className="spanner ms-3 ">
-              <a href="https://twitter.com/Nike">
-                <BsTwitter />
-              </a>
-            </span>
             <span className="spanner ms-3">
               <a href="https://www.linkedin.com/in/benedetto-manfr%C3%A9-6b000a164/">
                 <BsLinkedin />
+              </a>
+            </span>
+            <span className="spanner ms-3">
+              <a href="https://github.com/IlBennys">
+                <BsGithub />
+              </a>
+            </span>
+            <span className="spanner ms-3 ">
+              <a href="https://twitter.com/Nike">
+                <BsTwitter />
               </a>
             </span>
             <span className="spanner ms-3">

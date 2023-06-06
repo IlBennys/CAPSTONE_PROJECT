@@ -1,5 +1,6 @@
 package com.gestione.negozio.commerce.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -41,6 +42,7 @@ public class OrdineService {
 	Carrello c = carrelloService.FindCarrelloById(idCarrello);
 	o.setUser(u);
 	o.setCarrello(c);
+	o.setArticoli(new ArrayList<>(c.getArticoli()));
 	ordineDao.save(o);
 
     }

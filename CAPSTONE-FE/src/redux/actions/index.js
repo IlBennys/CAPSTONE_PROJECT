@@ -22,13 +22,12 @@ export function regisrazioneUser(input) {
         body: JSON.stringify(input),
       })
       if (response.ok) {
-        // console.log(response)
         window.location.href = "http://localhost:3000/login"
       } else if (response.status === 400) {
-        alert("Email o Username già eistente")
+        alert("EMAIL O PASSWORD GIA' ESISTENTE")
       }
     } catch (error) {
-      alert("testComment", error)
+      alert("Errore con la registrazione", error)
     }
   }
 }
@@ -48,17 +47,17 @@ export function trovaIdOrdine(token, idUser, idCarrello, carrelloArticoli) {
           (e) =>
             e.user.id === idUser &&
             e.carrello.id === idCarrello &&
-            e.carrello.articoli.length === carrelloArticoli.length
+            e.carrello.articoli.length === carrelloArticoli.length &&
+            e.id === data.length - 1 + 1
         )
-
-        console.log(ordineFiltrato, "ordineFiltrato")
         dispatch({
           type: ADD_ID_ORDINE,
           payload: ordineFiltrato[0].id,
         })
+        dispatch(getOrdine(ordineFiltrato[0].id, token))
       }
     } catch (error) {
-      alert("testComment", error)
+      alert("Errore con il trova ordine!", error)
     }
   }
 }
@@ -75,14 +74,13 @@ export function trovaIdCarrello(idUser, token) {
       if (response.ok) {
         const data = await response.json()
         const carrelloFiltrato = data.filter((e) => e.id === idUser)
-        console.log(carrelloFiltrato[0].id, "oooooooooooooooooo")
         dispatch({
           type: ADD_ID_CARRELLO,
           payload: carrelloFiltrato[0].id,
         })
       }
     } catch (error) {
-      alert("testComment", error)
+      alert("Errore con trova ID carrello!", error)
     }
   }
 }
@@ -98,7 +96,6 @@ export function getUser(token, username) {
       })
       if (response.ok) {
         const data = await response.json()
-        console.log(data, "data")
         const userFiltrato = data.filter((e) => e.username === username)
         dispatch({
           type: USER,
@@ -107,7 +104,7 @@ export function getUser(token, username) {
         dispatch(trovaIdCarrello(userFiltrato[0].id, token))
       }
     } catch (error) {
-      alert("testComment", error)
+      alert("Errore con il GET user!", error)
     }
   }
 }
@@ -145,10 +142,8 @@ export function loginUser(input) {
         },
         body: JSON.stringify(input),
       })
-      console.log(response)
       if (response.ok) {
         const data = await response.json()
-        //console.log(data)
         dispatch({
           type: ADD_TOKEN,
           payload: data.accessToken,
@@ -157,7 +152,6 @@ export function loginUser(input) {
             type: USERNAME_USER,
             payload: data.username,
           })
-        console.log(data.accessToken)
         window.location.href = "http://localhost:3000/"
       } else if (response.status === 500) {
         alert("Email o Password errati")
@@ -191,7 +185,6 @@ export function getArticoli(token) {
           "Content-Type": "application/json",
         },
       })
-      console.log(response)
       if (response.ok) {
         const data = await response.json()
 
@@ -218,7 +211,6 @@ export function getCarrello(idCarrello, token) {
       })
       if (response.ok) {
         const data = await response.json()
-        console.log(data, "getCarrello")
         dispatch({
           type: CARRELLO_ARTICOLI,
           payload: data,
@@ -239,7 +231,6 @@ export function deleteCarrello(idCarrello, idArticolo, token) {
           "Content-Type": "application/json",
         },
       })
-      console.log(response)
       if (response.ok) {
         //alert("Articolo eliminato con successo.")
         dispatch(getCarrello(idCarrello, token))
@@ -260,7 +251,6 @@ export function creaOrdine(idUser, idCarrello, token) {
         },
       })
       if (response.ok) {
-        console.log(response, "creaOrdine")
         window.location.href = "/ordine"
       }
     } catch (error) {
@@ -284,7 +274,6 @@ export function aggiungiArticoliCarrello(idCarrello, idArticolo, token) {
         },
       })
       if (response.ok) {
-        //console.log(response)
       }
     } catch (error) {
       alert("testComment", error)
@@ -303,12 +292,10 @@ export function getOrdine(id, token) {
       })
       if (response.ok) {
         const data = await response.json()
-        console.log(data)
         dispatch({
           type: ADD_ORDINE,
           payload: data,
         })
-        console.log(response)
       }
     } catch (error) {
       alert("testComment", error)
@@ -327,7 +314,6 @@ export function creaFattura(idOrdine, token) {
         },
       })
       if (response.ok) {
-        console.log(response)
         dispatch({ type: FATTURA_CREATED })
       }
     } catch (error) {
@@ -349,7 +335,6 @@ export function getOrdini(token, idUser, idCarrello) {
       if (response.ok) {
         const data = await response.json()
         const ordiniFiltrati = data.filter((e) => e.user.id === idUser && e.carrello.id === idCarrello)
-        console.log(ordiniFiltrati, "getOrdini")
         dispatch({
           type: ORDINI,
           payload: ordiniFiltrati,
@@ -373,11 +358,16 @@ export function getFattura(idOrdine, token) {
       })
       if (response.ok) {
         const data = await response.json()
-        console.log(data, "datiamo")
         dispatch({ type: FATTURA, payload: data })
       }
     } catch (error) {
       alert("testComment", error)
     }
+  }
+}
+export function svuotaOrdini() {
+  return (dispatch) => {
+    dispatch({ type: ADD_ORDINE, payload: {} })
+    dispatch({ type: ADD_ID_ORDINE, payload: "" })
   }
 }

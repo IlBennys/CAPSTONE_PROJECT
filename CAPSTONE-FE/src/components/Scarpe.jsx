@@ -40,7 +40,6 @@ function Scarpe() {
           if (response.ok) {
             const articolo = scarpe.find((e) => e.id === id2)
             setCarrello((prevCarrello) => [...prevCarrello, articolo])
-            //alert("Articolo aggiunto al carrello.")
             setShow(true)
             setUltimoArticoloAggiunto(articolo)
             dispatch(getCarrello(1, token))
@@ -97,6 +96,7 @@ function Scarpe() {
                   </Card.Text>
                   <div className="d-flex flex-column align-items-center justify-content-center mt-4">
                     <Button
+                      disabled={token === ""}
                       onClick={() => {
                         postCarrello(1, e.id)
                       }}

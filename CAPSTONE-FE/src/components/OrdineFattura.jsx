@@ -2,7 +2,7 @@ import "../assets/sass/OrdineFatturaCustom.scss"
 import loghino from "../assets/palla.png"
 import { Button, Card, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { creaFattura, getFattura, getOrdine, trovaIdOrdine } from "../redux/actions"
+import { creaFattura, deleteCarrello, getCarrello, getFattura, trovaIdOrdine } from "../redux/actions"
 import jsPDF from "jspdf"
 import { useEffect, useState } from "react"
 
@@ -21,8 +21,8 @@ const OrdineFattura = () => {
 
     // CALCOLA IL PREZZO TOTALE DELLA FATTURA
     let prezzoTotale = 0
-    if (carrello.articoli.length > 0) {
-      prezzoTotale = carrello.articoli.reduce((acc, articolo) => {
+    if (ordine.articoli.length > 0) {
+      prezzoTotale = ordine.articoli.reduce((acc, articolo) => {
         return acc + articolo.prezzo
       }, 0)
     }
@@ -46,10 +46,15 @@ const OrdineFattura = () => {
     doc.setTextColor(0, 0, 128)
     doc.setFont("Times", "bold")
     doc.setFontSize(12)
-    doc.text(10, 30, `DATI ORDINE:`)
+    doc.text(10, 25, `DATI ORDINE:`)
     doc.setFont("Times", "normal")
     doc.setTextColor(0, 0, 0)
-    doc.text(10, 45, `IL TUO ORDINE: ${ordine.numeroOrdine}`)
+    doc.text(10, 35, `IL TUO ORDINE: ${ordine.numeroOrdine}`)
+    doc.text(
+      10,
+      45,
+      `DESTINATARIO: ${user.lastname}`.toLocaleUpperCase() + " " + `${user.firstname}`.toLocaleUpperCase()
+    )
     doc.text(10, 55, `IN STATO: ${ordine.statoOrdine}`)
     doc.text(10, 65, `RIEPILOGO: ${ordine.riepilogoOrdine}`.toLocaleUpperCase())
 
@@ -82,18 +87,18 @@ const OrdineFattura = () => {
     doc.line(35, 152, 35, 162, "S")
     doc.line(155, 152, 155, 162, "S")
     doc.line(190, 152, 190, 162, "S")
-    carrello.articoli.map(
+    ordine?.articoli?.map(
       (e, i) => (
         // orizzontale
         // eslint-disable-next-line no-sequences
         doc.line(10, 172 + i * 10, 190, 172 + i * 10, "S"),
-        // verticale1
+        // verticale 1
         doc.line(10, 165 + i * 10, 10, 172 + i * 10, "S"),
-        // verticale2
+        // verticale 2
         doc.line(35, 165 + i * 10, 35, 172 + i * 10, "S"),
-        // verticale3
+        // verticale 3
         doc.line(155, 165 + i * 10, 155, 172 + i * 10, "S"),
-        // verticale4
+        // verticale 4
         doc.line(190, 165 + i * 10, 190, 172 + i * 10, "S"),
         doc.text(20, 170 + i * 10, `P - ${e.id}`),
         doc.text(50, 169 + i * 10, `${e.nomeArticoli}`),
@@ -104,27 +109,33 @@ const OrdineFattura = () => {
 
     doc.setTextColor(255, 0, 0)
     doc.setFont("Times", "bold")
-    //oriz
+    //orizzontale
     doc.line(10, 265, 190, 265, "S")
-    //vert 1
+    //verticale 1
     doc.line(10, 265, 10, 275, "S")
-    // vert 2
+    // verticale 2
     doc.line(35, 265, 35, 275, "S")
-    //vert 3
+    //verticale 3
     doc.line(120, 265, 120, 275, "S")
-    //vert 5
+    //verticale 5
     doc.line(190, 265, 190, 275, "S")
-    doc.text(20, 273, `N.${carrello.articoli.length}`)
+    doc.text(20, 273, `N.${ordine.articoli.length}`)
     doc.text(40, 273, `BASE IMPONIBILE: ${prezzoTotale.toFixed(2)}€`)
-    doc.text(130, 273, `IMPORTO TOTALE: ${(prezzoTotale + iva).toFixed(2)}€`)
+    doc.text(122, 273, `IMPORTO TOTALE: ${(prezzoTotale + iva).toFixed(2)}€`)
     doc.line(10, 275, 190, 275, "S")
 
     doc.save("Fattura Energy Shoes")
   }
 
+  const deleteAllArticoli = () => {
+    ordine.articoli.forEach((e) => {
+      dispatch(deleteCarrello(user.id, e.id, token))
+      dispatch(getCarrello(user.id, token))
+    })
+  }
+
   useEffect(() => {
     dispatch(trovaIdOrdine(token, user.id, user.id, carrello.articoli))
-    dispatch(getOrdine(idOrdine, token))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -149,7 +160,7 @@ const OrdineFattura = () => {
             </Card>
           </Row>
           <Row className="d-flex flex-row align-items-center justify-content-center">
-            {carrello.articoli.map((e, i) => (
+            {ordine?.articoli?.map((e, i) => (
               <Card className="card-custom BLUES" key={i}>
                 <Card.Img src={e.img} className="card-custom-img text-center h-50" variant="top" />
                 <Card.Title className="text-black text-center">{e.nomeArticoli}</Card.Title>
@@ -164,13 +175,19 @@ const OrdineFattura = () => {
                   dispatch(creaFattura(idOrdine, token))
                   dispatch(getFattura(idOrdine, token))
                   setOrdineConfermato(true)
+                  deleteAllArticoli()
                 }}
               >
                 CONFERMA ORDINE
               </Button>
 
               {ordineConfermato && (
-                <Button className="BLUES text-black fw-bolder ms-4" onClick={() => creaPDF()}>
+                <Button
+                  className="BLUES text-black fw-bolder ms-4"
+                  onClick={() => {
+                    creaPDF()
+                  }}
+                >
                   SCARICA FATTURA
                 </Button>
               )}

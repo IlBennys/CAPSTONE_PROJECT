@@ -23,7 +23,6 @@ function Felpe() {
   const postCarrello = (id, id2) => {
     const isPresente = carrello.some((item) => item.id === id2)
     if (isPresente) {
-      //alert("Hai già aggiunto questo articolo al carrello.")
       setShow1(true)
     } else {
       fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
@@ -38,7 +37,6 @@ function Felpe() {
           if (response.ok) {
             const articolo = felpe.find((e) => e.id === id2)
             setCarrello((prevCarrello) => [...prevCarrello, articolo])
-            //alert("Articolo aggiunto al carrello.")
             setShow(true)
             setUltimoArticoloAggiunto(articolo)
             dispatch(getCarrello(1, token))
@@ -94,6 +92,7 @@ function Felpe() {
                   </Card.Text>
                   <div className="d-flex flex-column align-items-center justify-content-center mt-4">
                     <Button
+                      disabled={token === ""}
                       onClick={() => {
                         postCarrello(1, e.id)
                       }}

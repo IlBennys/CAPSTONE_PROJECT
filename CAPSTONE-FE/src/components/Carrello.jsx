@@ -10,8 +10,9 @@ function Carrello() {
   const user = useSelector((state) => state.user.user)
   const carrello = useSelector((state) => state.user.carrello)
   const dispatch = useDispatch()
-  const [show, setShow] = useState(false)
 
+  // MODAL
+  const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -33,6 +34,7 @@ function Carrello() {
   return (
     <>
       <Container className="p-4">
+        <h1 className="text-center"> - IL TUO CARRELLO - </h1>
         <div className="d-flex justify-content-evenly flex-wrap mt-5">
           {carrello.articoli.map((e, i) => (
             <Card style={{ width: "18rem" }} key={i} className="mt-4 coloresfondo">

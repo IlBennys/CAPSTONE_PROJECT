@@ -3,16 +3,15 @@ import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import { MdOutlineShoppingCart } from "react-icons/md"
-import { FaHatCowboySide, FaUserCircle } from "react-icons/fa"
+import { FaUserCircle } from "react-icons/fa"
 import { BsHousesFill } from "react-icons/bs"
 import { RiShoppingBag2Fill } from "react-icons/ri"
-import { GiRunningShoe, GiShirt } from "react-icons/gi"
 import logo from "../assets/LOGOnIKEE.png"
 import scritta from "../assets/NIKE SCRITTA.png"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Badge, Button, NavDropdown } from "react-bootstrap"
-import { getCarrello, getUser, logoutUser } from "../redux/actions"
+import { getCarrello, getUser, logoutUser, svuotaOrdini } from "../redux/actions"
 
 const NavCustom = () => {
   const token = useSelector((state) => state.user.token)
@@ -35,12 +34,19 @@ const NavCustom = () => {
               <img src={scritta} width="150" height="70" className="" alt="pic-logo" />
             </span>
             <span id="logonike">
-              <img src={logo} width="100" height="55" className="" alt="pic-logo" />
+              <img
+                src={logo}
+                onClick={() => dispatch(svuotaOrdini())}
+                width="100"
+                height="55"
+                className=""
+                alt="pic-logo"
+              />
             </span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ms-auto me-auto">
+            <Nav className="ms-auto me-auto" style={{ gap: "40px" }}>
               <span>
                 <Nav.Link className="caratteraGrande" id="scarpeButton" href="scarpe">
                   SCARPE
@@ -86,6 +92,7 @@ const NavCustom = () => {
 
                     <NavDropdown.Divider />
                     <Button
+                      href="/"
                       className="w-100 bottoneItems text-white btn btn-outline-danger p-2"
                       onClick={() => {
                         dispatch(logoutUser())

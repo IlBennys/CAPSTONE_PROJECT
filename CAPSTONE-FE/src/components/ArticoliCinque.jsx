@@ -10,10 +10,8 @@ const ArticoliCinque = () => {
       const response = await fetch("http://localhost:8080/api/articolo", {
         method: "GET",
       })
-      //console.log(response)
       if (response.ok) {
         const data = await response.json()
-        //console.log(data)
         setscarpe(data)
       }
     } catch (error) {

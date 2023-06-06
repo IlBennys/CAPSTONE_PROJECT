@@ -1,6 +1,7 @@
 package com.gestione.negozio.commerce.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.gestione.negozio.auth.entity.User;
@@ -14,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -53,5 +55,8 @@ public class Ordine {
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({ "ordini", "carrello" })
     private User user;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+    private List<Articolo> articoli;
 
 }
