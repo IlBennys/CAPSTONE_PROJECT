@@ -241,7 +241,7 @@ export function deleteCarrello(idCarrello, idArticolo, token) {
       })
       console.log(response)
       if (response.ok) {
-        alert("Articolo eliminato con successo.")
+        //alert("Articolo eliminato con successo.")
         dispatch(getCarrello(idCarrello, token))
       }
     } catch (error) {

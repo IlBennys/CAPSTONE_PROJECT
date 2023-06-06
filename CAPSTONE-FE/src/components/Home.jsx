@@ -33,6 +33,7 @@ const Home = () => {
         <div className="divPalla">
           <img src={palla} alt="ball-pic" />
         </div>
+
         <Row className="my-3">
           <ArticoliCinque />
         </Row>

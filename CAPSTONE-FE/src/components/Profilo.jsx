@@ -26,43 +26,43 @@ const Profilo = () => {
 
               <p className="ms-2 text-center mt-2">
                 NOME:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.firstname}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 COGNOME:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.lastname}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 DATA DI NASCITA:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.dataNascita}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 USERNAME:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.username}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 EMAIL:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.email}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 INDIRIZZO:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.indirizzo}
                 </span>
               </p>
               <p className="ms-2 text-center">
                 NUMERO DI TELEFONO:
-                <span className="fw-bold" style={{ color: "black" }}>
+                <span className="fw-bold ms-2" style={{ color: "black" }}>
                   {user.numeroTelefono}
                 </span>
               </p>

@@ -1,3 +1,6 @@
+$arancio: #ff3800;
+$bluScuro: #183061;
+
 .coloresfondo {
   background: rgb(37, 21, 215);
   background: -moz-radial-gradient(
@@ -19,6 +22,15 @@
     rgba(248, 126, 247, 0.4) 94%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2515d7",endColorstr="#f87ef7",GradientType=1);
+}
+
+.spanneriz {
+  color: $bluScuro;
+  background-color: $arancio;
+}
+
+.bottonesp {
+  border: black 2px dashed;
 }
 
 .bottoneElimina {

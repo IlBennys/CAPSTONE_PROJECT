@@ -18,7 +18,7 @@ const Azienda = () => {
               <AiOutlineStar />
             </span>
           </p>
-          <p> NIKE - ABOUT US</p>
+          <p className="NIKE-ABOUTUS"> - ABOUT US - </p>
           <p>
             <span className="mx-2">
               <AiOutlineStar />

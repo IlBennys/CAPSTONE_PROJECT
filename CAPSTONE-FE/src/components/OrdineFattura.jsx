@@ -1,11 +1,10 @@
 import "../assets/sass/OrdineFatturaCustom.scss"
 import loghino from "../assets/palla.png"
-import { Button, Card, Col, Container, Row } from "react-bootstrap"
+import { Button, Card, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { creaFattura, getFattura, getOrdine, trovaIdOrdine } from "../redux/actions"
 import jsPDF from "jspdf"
 import { useEffect, useState } from "react"
-import Carrello from "./Carrello"
 
 const OrdineFattura = () => {
   const imglogo = `${loghino}`
@@ -59,10 +58,10 @@ const OrdineFattura = () => {
     // AZIENDA
     doc.setTextColor(0, 0, 128)
     doc.setFont("Times", "bold")
-    doc.text(10, 90, `DATI AZIENDA:`)
+    doc.text(10, 85, `DATI AZIENDA:`)
     doc.setTextColor(0, 0, 0)
     doc.setFont("Times", "normal")
-    doc.text(10, 100, `${ordine.azienda.nomeAzienda}`)
+    doc.text(10, 95, `${ordine.azienda.nomeAzienda}`)
     doc.text(10, 105, `P.IVA: ${ordine.azienda.partitaIva}`)
     doc.text(10, 115, `CODICE FISCALE: ${ordine.azienda.codiceFiscale}`)
     doc.text(10, 125, `PEC: ${ordine.azienda.pec}`)
@@ -86,6 +85,7 @@ const OrdineFattura = () => {
     carrello.articoli.map(
       (e, i) => (
         // orizzontale
+        // eslint-disable-next-line no-sequences
         doc.line(10, 172 + i * 10, 190, 172 + i * 10, "S"),
         // verticale1
         doc.line(10, 165 + i * 10, 10, 172 + i * 10, "S"),

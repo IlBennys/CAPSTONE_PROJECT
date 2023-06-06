@@ -6,7 +6,9 @@ $biancoSporco: rgb(223, 220, 220);
   font-family: "Roboto Slab", serif;
   font-weight: 600;
 }
-
+.NIKE-ABOUTUS {
+  font-style: italic;
+}
 .atlimg {
   width: 550px;
   height: 350px;
@@ -90,6 +92,15 @@ h2 {
   width: 212vh;
   font-family: "Roboto Slab", serif;
 }
-body {
-  overflow-x: hidden; /* Hide scrollbars */
+
+.spanner {
+  font-size: x-large;
+}
+
+a {
+  text-decoration: none;
+  color: $biancoSporco;
+}
+a:hover {
+  color: #fff;
 }

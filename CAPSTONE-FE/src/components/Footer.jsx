@@ -42,7 +42,7 @@ const Footer = () => {
               </a>
             </span>
             <span className="spanner ms-3">
-              <a href="https://www.linkedin.com/company/nike">
+              <a href="https://www.linkedin.com/in/benedetto-manfr%C3%A9-6b000a164/">
                 <BsLinkedin />
               </a>
             </span>
