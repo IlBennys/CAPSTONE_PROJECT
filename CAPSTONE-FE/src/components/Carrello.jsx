@@ -39,10 +39,10 @@ function Carrello() {
           </Card>
         ))}
       </div>
-      <div className="bottoneElimina">
+      <div className=" d-flex justify-content-center align-items-center">
         <Button
           type="button"
-          className="coloresfondo w-50 h-50 mt-5 d-flex justify-content-center align-items-center BOOO"
+          className="coloresfondo w-25 h-50 mt-5  BOOO"
           variant="primary"
           disabled={carrello.articoli.length === 0}
           onClick={() => dispatch(creaOrdine(user.id, user.id, token))}

@@ -2,10 +2,10 @@ import "../assets/sass/LoginCustom.scss"
 import userr from "../assets/User.png"
 import { ImUser } from "react-icons/im"
 import { RiLockPasswordFill } from "react-icons/ri"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { getCarrello, loginUser } from "../redux/actions"
+import { useDispatch } from "react-redux"
+import { loginUser } from "../redux/actions"
 function Login() {
   const user = {
     username: "",
@@ -31,7 +31,7 @@ function Login() {
 
   return (
     <>
-      <Container>
+      <Container id="contenitore">
         <div className="MIX rounded-3 d-flex flex-column  mt-4 mb-3">
           <div className="d-flex flex-column align-items-center mt-4 ">
             <div className="d-flex flex-column align-items-center mt-4 rounded-circle  divisore">

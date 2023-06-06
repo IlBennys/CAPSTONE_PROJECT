@@ -35,7 +35,7 @@ function Register() {
   }
   return (
     <>
-      <Container>
+      <Container id="contenitoree">
         <div className="MIX rounded-3 d-flex flex-column  mt-4 mb-3">
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row className="d-flex flex-column align-items-center mb-3">

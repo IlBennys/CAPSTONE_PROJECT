@@ -1,8 +1,20 @@
+$arancio: #ff3800;
+$bluScuro: #183061;
+
 .scarpeimg {
   object-fit: contain;
 }
 .scarpeimg:hover {
   transform: scale(1.3);
+}
+
+.spanneriz {
+  color: $bluScuro;
+  background-color: $arancio;
+}
+
+.bottonesp {
+  border: black 2px dashed;
 }
 
 .BLUES {

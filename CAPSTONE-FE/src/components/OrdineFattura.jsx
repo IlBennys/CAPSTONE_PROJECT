@@ -1,6 +1,6 @@
 import "../assets/sass/OrdineFatturaCustom.scss"
 import loghino from "../assets/palla.png"
-import { Button, Card, Container } from "react-bootstrap"
+import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { creaFattura, getFattura, getOrdine, trovaIdOrdine } from "../redux/actions"
 import jsPDF from "jspdf"
@@ -29,7 +29,6 @@ const OrdineFattura = () => {
     }
     prezzoTotale += ordine.prezzoConsegna
     const iva = prezzoTotale * 0.22
-    prezzoTotale += iva
 
     // CALCOLA IL COLORE DEL TESTO
     const schiarimentoPercentuale = 0.8
@@ -104,9 +103,21 @@ const OrdineFattura = () => {
     )
 
     doc.setTextColor(255, 0, 0)
-    doc.setFontSize(18)
     doc.setFont("Times", "bold")
-    doc.text(20, 260, `PREZZO TOTALE FATTURA (IVA INCLUSA):   ${prezzoTotale.toFixed(2)}€`)
+    //oriz
+    doc.line(10, 265, 190, 265, "S")
+    //vert 1
+    doc.line(10, 265, 10, 275, "S")
+    // vert 2
+    doc.line(35, 265, 35, 275, "S")
+    //vert 3
+    doc.line(120, 265, 120, 275, "S")
+    //vert 5
+    doc.line(190, 265, 190, 275, "S")
+    doc.text(20, 273, `N.${carrello.articoli.length}`)
+    doc.text(40, 273, `BASE IMPONIBILE: ${prezzoTotale.toFixed(2)}€`)
+    doc.text(130, 273, `IMPORTO TOTALE: ${(prezzoTotale + iva).toFixed(2)}€`)
+    doc.line(10, 275, 190, 275, "S")
 
     doc.save("Fattura Energy Shoes")
   }
@@ -121,46 +132,50 @@ const OrdineFattura = () => {
     <>
       <div className="divTOtt">
         <Container className="containe ">
-          <Card className="rounded-3 my-3 BLUES">
-            <Card.Text className="text-center text-black mt-2">
-              NUMERO ORDINE:<span className="fw-bold text-black"> {ordine.numeroOrdine}</span>
-            </Card.Text>
-            <Card.Text className="text-center text-black mt-2">
-              DATA ORDINE: <span className="fw-bold text-black">{ordine.dataOrdine}</span>
-            </Card.Text>
-            <Card.Text className="text-center text-black mt-2">
-              DATA CONSEGNA: <span className="fw-bold text-black">{ordine.dataConsegna}</span>
-            </Card.Text>
-            <Card.Text className="text-center text-black my-2 ">
-              PREZZO CONSEGNA: <span className="fw-bold text-black">{ordine.prezzoConsegna}€</span>
-            </Card.Text>
-          </Card>
-          <Container className="d-flex flex-row align-items-center justify-content-center">
+          <Row>
+            <Card className="rounded-3 my-3 BLUES">
+              <Card.Text className="text-center text-black mt-2">
+                NUMERO ORDINE:<span className="fw-bold text-black"> {ordine.numeroOrdine}</span>
+              </Card.Text>
+              <Card.Text className="text-center text-black mt-2">
+                DATA ORDINE: <span className="fw-bold text-black">{ordine.dataOrdine}</span>
+              </Card.Text>
+              <Card.Text className="text-center text-black mt-2">
+                DATA CONSEGNA: <span className="fw-bold text-black">{ordine.dataConsegna}</span>
+              </Card.Text>
+              <Card.Text className="text-center text-black my-2 ">
+                PREZZO CONSEGNA: <span className="fw-bold text-black">{ordine.prezzoConsegna}€</span>
+              </Card.Text>
+            </Card>
+          </Row>
+          <Row className="d-flex flex-row align-items-center justify-content-center">
             {carrello.articoli.map((e, i) => (
               <Card className="card-custom BLUES" key={i}>
                 <Card.Img src={e.img} className="card-custom-img text-center h-50" variant="top" />
                 <Card.Title className="text-black text-center">{e.nomeArticoli}</Card.Title>
               </Card>
             ))}
-          </Container>
-          <div className=" d-flex flex-row align-items-center justify-content-center">
-            <Button
-              className="my-4 BLUES text-black fw-bolder"
-              onClick={() => {
-                dispatch(creaFattura(idOrdine, token))
-                dispatch(getFattura(idOrdine, token))
-                setOrdineConfermato(true)
-              }}
-            >
-              CONFERMA ORDINE
-            </Button>
-
-            {ordineConfermato && (
-              <Button className="BLUES text-black fw-bolder ms-4" onClick={() => creaPDF()}>
-                SCARICA FATTURA
+          </Row>
+          <Row>
+            <div className=" d-flex flex-row align-items-center justify-content-center">
+              <Button
+                className="my-4 BLUES text-black fw-bolder"
+                onClick={() => {
+                  dispatch(creaFattura(idOrdine, token))
+                  dispatch(getFattura(idOrdine, token))
+                  setOrdineConfermato(true)
+                }}
+              >
+                CONFERMA ORDINE
               </Button>
-            )}
-          </div>
+
+              {ordineConfermato && (
+                <Button className="BLUES text-black fw-bolder ms-4" onClick={() => creaPDF()}>
+                  SCARICA FATTURA
+                </Button>
+              )}
+            </div>
+          </Row>
         </Container>
       </div>
     </>

@@ -1,11 +1,21 @@
-import { Container } from "react-bootstrap"
+import { Container, Modal } from "react-bootstrap"
 import "../assets/sass/ScarpeCustom.scss"
+import { BiCartAdd } from "react-icons/bi"
 import { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { useDispatch, useSelector } from "react-redux"
 import { getArticoli, getCarrello } from "../redux/actions"
 function Scarpe() {
+  const [show, setShow] = useState(false)
+  const [show1, setShow1] = useState(false)
+  const [ultimoArticoloAggiunto, setUltimoArticoloAggiunto] = useState(null)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+  const handleClose1 = () => setShow1(false)
+  const handleShow1 = () => setShow1(true)
+
   const scarpe = useSelector((state) => state.user.articoli)
   const dispatch = useDispatch()
   const [carrello, setCarrello] = useState([])
@@ -14,7 +24,7 @@ function Scarpe() {
   const postCarrello = (id, id2) => {
     const isPresente = carrello.some((item) => item.id === id2)
     if (isPresente) {
-      alert("Hai già aggiunto questo articolo al carrello.")
+      setShow1(true)
     } else {
       fetch(`http://localhost:8080/api/carrello/${id}/articoli/${id2}`, {
         method: "POST",
@@ -28,7 +38,9 @@ function Scarpe() {
           if (response.ok) {
             const articolo = scarpe.find((e) => e.id === id2)
             setCarrello((prevCarrello) => [...prevCarrello, articolo])
-            alert("Articolo aggiunto al carrello.")
+            //alert("Articolo aggiunto al carrello.")
+            setShow(true)
+            setUltimoArticoloAggiunto(articolo)
             dispatch(getCarrello(1, token))
           } else if (response.status === 409) {
             alert("Articolo già aggiunto al carrello.")
@@ -79,6 +91,53 @@ function Scarpe() {
           ))}
         </div>
       </Container>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className="spanneriz d-flex justify-content-center align-items-center">
+          <Modal.Title className="spanneriz"> - ARTICOLO AGGIUNTO - </Modal.Title>
+        </Modal.Header>
+        {ultimoArticoloAggiunto && (
+          <Modal.Body className="spanneriz">
+            <span className="spanneriz fs-4 me-5">
+              Hai aggiunto l'articolo{" "}
+              <span style={{ textDecoration: "underline" }}>{ultimoArticoloAggiunto.nomeArticoli}</span> al tuo
+              carrello!
+            </span>
+            <span className="fs-6 ms-3 text-white" style={{ opacity: "40%" }}>
+              <BiCartAdd />
+            </span>
+            <span className="fs-5 ms-3 text-white" style={{ opacity: "60%" }}>
+              <BiCartAdd />
+            </span>
+            <span className="fs-4 ms-3 text-white" style={{ opacity: "80%" }}>
+              <BiCartAdd />
+            </span>
+            <span className="fs-3 ms-3 text-white">
+              <BiCartAdd />
+            </span>
+          </Modal.Body>
+        )}
+        <Modal.Footer className="spanneriz">
+          <Button variant="danger" className="spanneriz bottonesp" onClick={handleClose}>
+            CHIUDI
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={show1} onHide={handleClose1}>
+        <Modal.Header closeButton>
+          <Modal.Title>GIA ESISTE</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose1}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose1}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
